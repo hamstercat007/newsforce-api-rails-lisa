@@ -4,7 +4,7 @@ import NewsCard from './components/NewsCard';
 function App() {
   const [data, setData] = useState([]);
   const getData = () => {
-    fetch('data.json', {
+    fetch('sampleData.json', {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
