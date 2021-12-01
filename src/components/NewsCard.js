@@ -17,8 +17,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import jazeeraLogo from '../al-jazeera-logo.png';
-import APlogo from '../associatedpress.png';
+import jazeeraLogo from '../images/al-jazeera-logo.png';
+import APlogo from '../images/associatedpress.png';
 import formatTimeAgo from './TimeFormat';
 import Link from '@material-ui/core/Link';
 
