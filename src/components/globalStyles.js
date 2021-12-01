@@ -28,8 +28,8 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.navColor};
   };
   .MuiCardHeader-title{
-    font-weight: bold;
-    font-size: 1em;
+    font-weight: bold !important;
+    font-size: 1em !important;
   };
   .MuiCardHeader-subheader{
     font-style: italic;
