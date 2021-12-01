@@ -1,3 +1,6 @@
+import bgDark from '../images/bg-dark.png';
+import bgLight from '../images/bg-light.png';
+
 export const lightTheme = {
   body: '#EBEBEB',
   text: '#363537',
@@ -6,6 +9,7 @@ export const lightTheme = {
   border: 'none',
   navColor: '#EBEBEB',
   mutedColor: 'gray',
+  bgImage: bgLight,
 };
 export const darkTheme = {
   body: '#2D3A54',
@@ -16,4 +20,5 @@ export const darkTheme = {
   border: '#FAFAFA',
   navColor: '#2D3A54',
   mutedColor: '#F5F5F5',
+  bgImage: bgDark,
 };

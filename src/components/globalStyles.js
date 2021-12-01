@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   body {
-    background: ${({ theme }) => theme.body};
+    background-image: url(${({ theme }) => theme.bgImage});
+    background-size: 900px;
     color: ${({ theme }) => theme.text};
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     transition: all 0.50s linear;
@@ -17,7 +18,8 @@ export const GlobalStyles = createGlobalStyle`
   };
   .MuiTypography-h6{
     color: ${({ theme }) => theme.text};
-    font-weight: bold;
+    font-weight: bold !important;
+    font-size: 2em !important; 
   };
   .MuiSvgIcon-root{
     color: ${({ theme }) => theme.text};
