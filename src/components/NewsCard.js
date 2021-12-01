@@ -18,6 +18,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import jazeeraLogo from '../al-jazeera-logo.png';
+import APlogo from '../associatedpress.png';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -47,9 +49,12 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
     <Card sx={{ maxWidth: 400 }} style={{ margin: '2em' }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Avatar
+            src={publisher === 'Associated Press' ? APlogo : jazeeraLogo}
+            aria-label="recipe"
+            variant="square"
+            sx={{ width: 46, height: 56 }}
+          ></Avatar>
         }
         action={
           <IconButton aria-label="settings">
@@ -57,7 +62,6 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
           </IconButton>
         }
         title={headline}
-        subheader={publish_date}
       />
       <CardMedia component="img" height="194" src={image_url} alt="Paella dish" />
       <CardActions disableSpacing>
@@ -67,6 +71,11 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
         <IconButton aria-label="share">
           <NewspaperIcon />
         </IconButton>
+
+        <Typography m={0} paragraph>
+          {publish_date}
+        </Typography>
+
         <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
           <ExpandMoreIcon />
         </ExpandMore>
