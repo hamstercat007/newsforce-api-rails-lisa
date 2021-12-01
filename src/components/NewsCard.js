@@ -46,7 +46,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
   };
 
   return (
-    <Card sx={{ maxWidth: 400 }} style={{ margin: '2em' }}>
+    <Card sx={{ maxWidth: 400 }} style={{ margin: '1em' }}>
       <CardHeader
         avatar={
           <Avatar

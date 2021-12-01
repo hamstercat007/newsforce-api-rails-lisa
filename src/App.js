@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewsCard from './components/NewsCard';
+import Grid from '@mui/material/Grid';
 
 function App() {
   const [data, setData] = useState([]);
@@ -25,19 +26,23 @@ function App() {
 
   return (
     <div className="App">
-      {data &&
-        data.length > 0 &&
-        data.map((item) => (
-          <NewsCard
-            key={item.id}
-            publisher={item.publisher}
-            publish_date={item.publish_date}
-            image_url={item.image_url}
-            headline={item.headline}
-            sub_headline={item.sub_headline}
-            article_body={item.article_body}
-          />
-        ))}
+      <Grid container spacing={0}>
+        {data &&
+          data.length > 0 &&
+          data.map((item) => (
+            <Grid item key={item} xs={12} sm={6} md={4} style={{ minWidth: '400px' }}>
+              <NewsCard
+                key={item.id}
+                publisher={item.publisher}
+                publish_date={item.publish_date}
+                image_url={item.image_url}
+                headline={item.headline}
+                sub_headline={item.sub_headline}
+                article_body={item.article_body}
+              />
+            </Grid>
+          ))}
+      </Grid>
     </div>
   );
 }
