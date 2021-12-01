@@ -1,9 +1,10 @@
 export const lightTheme = {
-  body: '#FFF',
+  body: '#EBEBEB',
   text: '#363537',
   toggleBorder: '#FFF',
   background: '#363537',
   border: 'none',
+  navColor: '#EBEBEB',
 };
 export const darkTheme = {
   body: '#2D3A54',
@@ -12,4 +13,5 @@ export const darkTheme = {
   background: '#2D3A54',
   cardcolor: '#2D3A54',
   border: '#FAFAFA',
+  navColor: '#2D3A54',
 };

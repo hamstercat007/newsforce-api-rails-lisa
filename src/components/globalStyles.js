@@ -12,6 +12,13 @@ export const GlobalStyles = createGlobalStyle`
     border: 2px solid ${({ theme }) => theme.border};
   };
   .MuiAppBar-root{
-    background: ${({ theme }) => theme.cardcolor};
+    background: ${({ theme }) => theme.navColor};
     color: ${({ theme }) => theme.text};
-  }		`;
+  };
+  .MuiTypography-h6{
+    color: ${({ theme }) => theme.text};
+    font-weight: bold;
+  };
+  .MuiSvgIcon-root{
+    color: ${({ theme }) => theme.text};
+  }	`;
