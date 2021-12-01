@@ -9,7 +9,6 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -21,6 +20,7 @@ import Divider from '@mui/material/Divider';
 import jazeeraLogo from '../al-jazeera-logo.png';
 import APlogo from '../associatedpress.png';
 import formatTimeAgo from './TimeFormat';
+import Link from '@material-ui/core/Link';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -33,7 +33,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, article_body }) => {
+const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -70,14 +70,9 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
         <IconButton aria-label="add to favorites">
           <BookmarkAddIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <Link href={src_url} target="_blank">
           <NewspaperIcon />
-        </IconButton>
-
-        {/* <Typography m={0} paragraph>
-          {formatTimeAgo(publish_date)}
-        </Typography> */}
-
+        </Link>
         <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
           <ExpandMoreIcon />
         </ExpandMore>

@@ -72,6 +72,7 @@ function App() {
                       headline={item.headline}
                       sub_headline={item.sub_headline}
                       article_body={item.article_body}
+                      src_url={item.source_url}
                     />
                   </Grid>
                 ))}
