@@ -65,7 +65,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
         title={headline}
         subheader={formatTimeAgo(publish_date)}
       />
-      <CardMedia component="img" height="194" src={image_url} alt="Paella dish" />
+      <CardMedia component="img" height="194" src={image_url} alt="Image" />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <BookmarkAddIcon />
