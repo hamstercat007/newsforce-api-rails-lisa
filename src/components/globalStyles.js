@@ -21,4 +21,10 @@ export const GlobalStyles = createGlobalStyle`
   };
   .MuiSvgIcon-root{
     color: ${({ theme }) => theme.text};
-  }	`;
+  };
+  .dark-mode-toggle{
+    color: ${({ theme }) => theme.text};
+    border: none;
+    background-color: ${({ theme }) => theme.navColor};
+  }
+  	`;
