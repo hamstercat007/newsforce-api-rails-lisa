@@ -34,5 +34,6 @@ export const GlobalStyles = createGlobalStyle`
   .MuiCardHeader-subheader{
     font-style: italic;
     margin: 0;
+    color: ${({ theme }) => theme.mutedColor};;
   }
   	`;

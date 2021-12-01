@@ -5,6 +5,7 @@ export const lightTheme = {
   background: '#363537',
   border: 'none',
   navColor: '#EBEBEB',
+  mutedColor: 'gray',
 };
 export const darkTheme = {
   body: '#2D3A54',
@@ -14,4 +15,5 @@ export const darkTheme = {
   cardcolor: '#2D3A54',
   border: '#FAFAFA',
   navColor: '#2D3A54',
+  mutedColor: '#F5F5F5',
 };
