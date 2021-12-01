@@ -16,7 +16,7 @@ import Toolbar from '@mui/material/Toolbar';
 function App() {
   const [data, setData] = useState([]);
   const getData = () => {
-    fetch('sampleData.json', {
+    fetch('https://newsforce-api.herokuapp.com/index', {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
