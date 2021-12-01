@@ -26,5 +26,13 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     border: none;
     background-color: ${({ theme }) => theme.navColor};
+  };
+  .MuiCardHeader-title{
+    font-weight: bold;
+    font-size: 1em;
+  };
+  .MuiCardHeader-subheader{
+    font-style: italic;
+    margin: 0;
   }
   	`;

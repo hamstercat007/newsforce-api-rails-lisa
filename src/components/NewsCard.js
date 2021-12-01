@@ -20,6 +20,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import jazeeraLogo from '../al-jazeera-logo.png';
 import APlogo from '../associatedpress.png';
+import formatTimeAgo from './TimeFormat';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -62,6 +63,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
           </IconButton>
         }
         title={headline}
+        subheader={formatTimeAgo(publish_date)}
       />
       <CardMedia component="img" height="194" src={image_url} alt="Paella dish" />
       <CardActions disableSpacing>
@@ -72,9 +74,9 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
           <NewspaperIcon />
         </IconButton>
 
-        <Typography m={0} paragraph>
-          {publish_date}
-        </Typography>
+        {/* <Typography m={0} paragraph>
+          {formatTimeAgo(publish_date)}
+        </Typography> */}
 
         <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
           <ExpandMoreIcon />
