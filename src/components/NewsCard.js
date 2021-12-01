@@ -18,6 +18,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import jazeeraLogo from '../images/al-jazeera-logo.png';
+import bbcLogo from '../images/bbc-logo.png';
 import APlogo from '../images/associatedpress.png';
 import formatTimeAgo from './TimeFormat';
 import Link from '@material-ui/core/Link';
@@ -32,6 +33,16 @@ const ExpandMore = styled((props) => {
     duration: theme.transitions.duration.shortest,
   }),
 }));
+
+const getIcon = (publisher) => {
+  if (publisher === 'Associated Press') {
+    return APlogo;
+  } else if (publisher === 'Al Jazeera English') {
+    return jazeeraLogo;
+  } else {
+    return bbcLogo;
+  }
+};
 
 const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url }) => {
   const [expanded, setExpanded] = React.useState(false);
@@ -49,14 +60,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
   return (
     <Card sx={{ maxWidth: 400 }} style={{ margin: '1em' }}>
       <CardHeader
-        avatar={
-          <Avatar
-            src={publisher === 'Associated Press' ? APlogo : jazeeraLogo}
-            aria-label="recipe"
-            variant="square"
-            sx={{ width: 46, height: 56 }}
-          ></Avatar>
-        }
+        avatar={<Avatar src={getIcon(publisher)} aria-label="recipe" variant="square" sx={{ height: 'auto' }}></Avatar>}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
