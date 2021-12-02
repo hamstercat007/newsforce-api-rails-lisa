@@ -29,7 +29,9 @@ const Navigation = ({ themeToggler, handleOpen }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">Newsforce</Link>
+            <Link underline="none" to="/">
+              Newsforce
+            </Link>
           </Typography>
           <Button color="inherit" onClick={handleAboutClick}>
             About Us
