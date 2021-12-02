@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./components/globalStyles";
 import { lightTheme, darkTheme } from "./components/Themes";
 import Navigation from "./components/Navigation";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 
@@ -17,9 +17,12 @@ function App() {
     <Router>
       <>
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+          
           <Navigation themeToggler={themeToggler} />
+
           <>
             <GlobalStyles />
+
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/about" element={<AboutUs />}></Route>
