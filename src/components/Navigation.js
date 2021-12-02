@@ -19,6 +19,7 @@ const Navigation = ({ themeToggler }) => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             NewsForce
           </Typography>
+          
           <button onClick={themeToggler} className="dark-mode-toggle">
             <Brightness6Icon />
           </button>
