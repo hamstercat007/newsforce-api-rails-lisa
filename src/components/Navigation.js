@@ -7,9 +7,14 @@ import IconButton from "@mui/material/IconButton";
 import Brightness6Icon from "@mui/icons-material/Brightness6";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Navigation = ({ themeToggler, handleOpen }) => {
+  const navigate = useNavigate();
+
+  function handleAboutClick() {
+    navigate("/about");
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -26,7 +31,9 @@ const Navigation = ({ themeToggler, handleOpen }) => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to="/">Newsforce</Link>
           </Typography>
-          <Link to="/about">About Us</Link>
+          <Button color="inherit" onClick={handleAboutClick}>
+            About Us
+          </Button>
 
           <button onClick={themeToggler} className="dark-mode-toggle" />
           <IconButton onClick={themeToggler}>
