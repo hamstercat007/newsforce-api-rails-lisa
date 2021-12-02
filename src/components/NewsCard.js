@@ -66,7 +66,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
             <MoreVertIcon />
           </IconButton>
         }
-        title={headline}
+        title={sub_headline}
         subheader={formatTimeAgo(publish_date)}
       />
       <CardMedia component="img" height="194" src={image_url} alt="Image" />
@@ -83,7 +83,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{sub_headline}</Typography>
+          <Typography paragraph>{headline}</Typography>
         </CardContent>
         <CardContent>
           <Typography paragraph>How others covered this:</Typography>

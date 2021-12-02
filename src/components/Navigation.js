@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
-const Navigation = ({ themeToggler }) => {
+const Navigation = ({ themeToggler, handleOpen }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -28,9 +28,13 @@ const Navigation = ({ themeToggler }) => {
           </Typography>
           <Link to="/about">About Us</Link>
 
-          <button onClick={themeToggler} className="dark-mode-toggle">
+          <button onClick={themeToggler} className="dark-mode-toggle" />
+          <IconButton onClick={themeToggler}>
             <Brightness6Icon />
-          </button>
+          </IconButton>
+          <Button color="inherit" onClick={handleOpen}>
+            Sign Up
+          </Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
