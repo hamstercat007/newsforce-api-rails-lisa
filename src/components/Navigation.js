@@ -13,15 +13,21 @@ const Navigation = ({ themeToggler }) => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             NewsForce
           </Typography>
-          <button onClick={themeToggler} className="dark-mode-toggle">
+          <IconButton onClick={themeToggler}>
             <Brightness6Icon />
-          </button>
+          </IconButton>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
