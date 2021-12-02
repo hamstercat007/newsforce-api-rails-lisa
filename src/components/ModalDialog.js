@@ -6,7 +6,9 @@ const ModalDialog = ({ open, handleClose }) => {
   return (
     <Dialog open={open} onClose={handleClose}>
       // form to create
-      // <Form handleClose={handleClose} />
+      {/* <Form handleClose={handleClose} /> */}
     </Dialog>
   )
 }
+
+export default ModalDialog;
