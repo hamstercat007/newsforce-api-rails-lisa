@@ -28,6 +28,7 @@ const Navigation = ({ themeToggler }) => {
           <IconButton onClick={themeToggler}>
             <Brightness6Icon />
           </IconButton>
+          <Button color="inherit">Sign Up</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
