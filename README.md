@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The live app can be found [here](https://newsforce-front-end-react.herokuapp.com/) 
 
 ## Available Scripts
 
