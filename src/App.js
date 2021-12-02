@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './components/globalStyles';
 import { lightTheme, darkTheme } from './components/Themes';
 import Navigation from './components/Navigation';
+import ModalDialog from './components/ModalDialog';
 
 function App() {
   const [data, setData] = useState([]);
@@ -31,10 +32,20 @@ function App() {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
+  // Modal dialog
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <Navigation themeToggler={themeToggler} />
+        <Navigation themeToggler={themeToggler} handleOpen={handleOpen} />
+        <ModalDialog open={open} handleClose={handleClose} />
         <>
           <GlobalStyles />
           <div className="App">

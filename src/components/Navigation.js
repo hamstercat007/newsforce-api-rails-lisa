@@ -8,7 +8,7 @@ import Brightness6Icon from '@mui/icons-material/Brightness6';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 
-const Navigation = ({ themeToggler }) => {
+const Navigation = ({ themeToggler, handleOpen }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -28,6 +28,7 @@ const Navigation = ({ themeToggler }) => {
           <IconButton onClick={themeToggler}>
             <Brightness6Icon />
           </IconButton>
+          <Button color="inherit" onClick={handleOpen}>Sign Up</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
