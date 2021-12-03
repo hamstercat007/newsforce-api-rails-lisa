@@ -6,7 +6,7 @@ const AboutUs = () => {
   return (
     <Card sx={{ minWidth: 400 }} style={{ margin: "2em" }}>
       <CardContent>
-        <h1>About Us</h1>
+        <h1>About Us - A Force for Good</h1>
         <p>
           Four aspirational students met at a software engineering school in
           London, UK.{" "}
@@ -26,7 +26,11 @@ const AboutUs = () => {
           freely available to all, to help people be better informed and have a
           broader view.{" "}
         </p>
-        <h3> May the Newsforce be with you.</h3>
+        <br></br>
+        <p style={{textAlign: 'center', fontWeight: 'bold'}}>
+          We believe in making a difference.{" "}
+        </p>
+        <h3 style={{textAlign: 'center'}}>May the Newsforce be with you.</h3>
       </CardContent>
     </Card>
   );
