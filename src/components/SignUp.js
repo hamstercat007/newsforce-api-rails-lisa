@@ -1,93 +1,108 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
+import React from 'react'
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import Card from "@mui/material/Card";
+import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: theme.spacing(2),
-
-    '& .MuiTextField-root': {
-          margin: theme.spacing(1),
-          width: '300px',
-        },
-    '& .MuiButtonBase-root': {
-          margin: theme.spacing(2),
-        },
-  },
-}));
-
-const SignUp = ({ handleClose }) => {
-  const classes = useStyles();
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
+const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
     // Update this with API call to user db
-    console.log(firstName, lastName, email, password, confirmPassword);
-    handleClose();
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
-      <h3>Create an account</h3>
-      <TextField
-        label="First Name"
-        variant="filled"
-        required
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
-      />
-      <TextField
-        label="Last Name"
-        variant="filled"
-        required
-        value={lastName}
-        onChange={e => setLastName(e.target.value)}
-      />
-      <TextField
-        label="Email"
-        variant="filled"
-        type="email"
-        required
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
-      <TextField
-        label="Password"
-        variant="filled"
-        type="password"
-        required
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <TextField
-        label="Confirm Password"
-        variant="filled"
-        type="password"
-        required
-        value={confirmPassword}
-        onChange={e => setConfirmPassword(e.target.value)}
-      />
-      <div>
-        <Button variant="outlined" onClick={handleClose}>
-          Cancel
-        </Button>
-        <Button type="submit" variant="contained">
-          Sign Up
-        </Button>
-      </div>
-    </form>
+    <Container component="main" maxWidth="xs">
+      <Card 
+        sx={{
+          maxWidth: 400 ,
+          margin: '1em',
+          textAlign: 'center',
+        }}
+      >
+        <Box
+          sx={{
+            marginTop: 4,
+            marginBottom: 4,
+            mx: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography component="h1" variant="h5">
+              Sign Up
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              autoComplete="given-name"
+              name="firstName"
+              required
+              fullWidth
+              id="firstName"
+              label="First Name"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="family-name"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="confirmPassword"
+              label="Confirm Password"
+              type="password"
+              id="confirmPassword"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Link to="/login" variant="body2">
+              {"Already have an account? Log in"}
+            </Link>
+          </Box>
+        </Box>
+      </Card>
+    </Container>
   );
 };
 
-export default SignUp
+export default SignUp;

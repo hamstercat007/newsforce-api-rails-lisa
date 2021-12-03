@@ -9,12 +9,14 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, Link } from "react-router-dom";
 
-const Navigation = ({ themeToggler, handleOpen }) => {
+const Navigation = ({ themeToggler }) => {
   const navigate = useNavigate();
 
-  
   function handleAboutClick() {
     navigate("/about");
+  }
+  function handleSignUpClick() {
+    navigate("/signup");
   }
   function handleLogInClick() {
     navigate("/login");
@@ -46,7 +48,7 @@ const Navigation = ({ themeToggler, handleOpen }) => {
           <IconButton onClick={themeToggler}>
             <Brightness6Icon />
           </IconButton>
-          <Button color="inherit" onClick={handleOpen}>
+          <Button color="inherit" onClick={handleSignUpClick}>
             Sign Up
           </Button>
           <Button color="inherit" onClick={handleLogInClick}>
