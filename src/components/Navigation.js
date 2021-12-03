@@ -16,6 +16,10 @@ const Navigation = ({ themeToggler, handleOpen }) => {
   function handleAboutClick() {
     navigate("/about");
   }
+  function handleLogInClick() {
+    navigate("/login");
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -45,7 +49,9 @@ const Navigation = ({ themeToggler, handleOpen }) => {
           <Button color="inherit" onClick={handleOpen}>
             Sign Up
           </Button>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={handleLogInClick}>
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

@@ -6,6 +6,8 @@ import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
+import SignUp from "./components/LogIn";
+import LogIn from "./components/LogIn";
 import ModalDialog from "./components/ModalDialog";
 
 function App() {
@@ -34,8 +36,10 @@ function App() {
             <GlobalStyles />
 
             <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/about" element={<AboutUs />}></Route>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/login" element={<LogIn />} />
             </Routes>
           </>
         </ThemeProvider>
