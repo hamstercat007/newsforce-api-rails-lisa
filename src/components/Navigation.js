@@ -36,7 +36,7 @@ const Navigation = ({ themeToggler }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link underline="none" to="/">
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
               Newsforce
             </Link>
           </Typography>
