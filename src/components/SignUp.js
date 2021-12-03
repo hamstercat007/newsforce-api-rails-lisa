@@ -28,11 +28,12 @@ const SignUp = ({ handleClose }) => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Update this with API call to user db
-    console.log(firstName, lastName, email, password);
+    console.log(firstName, lastName, email, password, confirmPassword);
     handleClose();
   };
 
@@ -68,6 +69,14 @@ const SignUp = ({ handleClose }) => {
         required
         value={password}
         onChange={e => setPassword(e.target.value)}
+      />
+      <TextField
+        label="Confirm Password"
+        variant="filled"
+        type="password"
+        required
+        value={confirmPassword}
+        onChange={e => setConfirmPassword(e.target.value)}
       />
       <div>
         <Button variant="outlined" onClick={handleClose}>
