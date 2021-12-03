@@ -4,17 +4,26 @@ import CardContent from "@mui/material/CardContent";
 
 const AboutUs = () => {
   return (
-    <Card sx={{ minWidth: 400 }} style={{ margin: "2em" }}>
+    <Card
+      sx={{ minWidth: 400 }}
+      style={{
+        margin: "2em",
+        paddingLeft: "1em",
+        paddingRight: "1em",
+        textAlign: "center",
+      }}
+    >
       <CardContent>
-        <h1>About Us - A Force for Good</h1>
+        <h2 style={{ padding:'0.5em'}}>About Us - A Force for Good</h2>
+
         <p>
           Four aspirational students met at a software engineering school in
-          London, UK.{" "}
+          London, UK.
         </p>
         <p>
           In a world of post-Brexit, Trump's fake news, and Covid
           misinformation, they realised the need for high quality news to
-          educate people.{" "}
+          educate people.
         </p>
         <p>
           However, free access to News Apis is under threat. To meet rising
@@ -26,11 +35,9 @@ const AboutUs = () => {
           freely available to all, to help people be better informed and have a
           broader view.{" "}
         </p>
-        <br></br>
-        <p style={{textAlign: 'center', fontWeight: 'bold'}}>
-          We believe in making a difference.{" "}
-        </p>
-        <h3 style={{textAlign: 'center'}}>May the Newsforce be with you.</h3>
+        
+        <p style={{ paddingTop: '1em', fontWeight: "bold" }}>We believe in making a difference.</p>
+        <h3>May the Newsforce be with you.</h3>
       </CardContent>
     </Card>
   );

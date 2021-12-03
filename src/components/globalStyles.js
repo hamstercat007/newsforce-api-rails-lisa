@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   body {
     background-image: url(${({ theme }) => theme.bgImage});
@@ -32,6 +32,10 @@ export const GlobalStyles = createGlobalStyle`
   .MuiCardHeader-title{
     font-weight: bold !important;
     font-size: 1em !important;
+  };
+
+  .link{
+  color: #FFF;
   };
   .MuiCardHeader-subheader{
     font-style: italic;

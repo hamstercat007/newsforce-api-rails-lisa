@@ -12,6 +12,7 @@ import { useNavigate, Link } from "react-router-dom";
 const Navigation = ({ themeToggler, handleOpen }) => {
   const navigate = useNavigate();
 
+  
   function handleAboutClick() {
     navigate("/about");
   }
