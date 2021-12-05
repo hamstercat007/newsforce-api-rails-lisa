@@ -15,3 +15,5 @@ it("renders text correctly", () => {
   const { getByTestId } = render(<AboutUs></AboutUs>);
   expect(getByTestId("aboutUsTitle")).toHaveTextContent("A Force for Good");
 });
+
+
