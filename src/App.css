@@ -43,3 +43,8 @@ li,
 a {
   font-family: 'IBMPlex-Light';
 }
+
+.nav-title {
+  font-family: 'IBMPlex-Bold' !important;
+  font-size: 0.8em;
+}
