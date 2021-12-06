@@ -127,3 +127,7 @@ a {
   flex-direction: column;
   justify-content: space-around;
 }
+
+.MuiFormControlLabel-label {
+  font-family: 'Biotif-Bold' !important;
+}
