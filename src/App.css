@@ -1,0 +1,80 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Biotif-Black';
+  src: local('Biotif-Black'), url('./fonts/Biotif/Biotif-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Biotif-Bold';
+  src: local('Biotif-Bold'), url('./fonts/Biotif/Biotif-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Biotif-Book';
+  src: local('Biotif-Book'), url('./fonts/Biotif/Biotif-Book.ttf') format('truetype');
+}
+
+h1,
+h2,
+th {
+  font-family: 'Biotif-Black';
+}
+
+h3,
+h4,
+h5 {
+  font-family: 'Biotif-Bold';
+}
+
+h6,
+p,
+li,
+a {
+  font-family: 'Biotif-Book';
+}
+
+.MuiCardHeader-subheader {
+  font-family: 'Biotif-Book' !important;
+}
+
+.nav-title {
+  font-family: 'Biotif-Black' !important;
+  font-size: 0.8em;
+}
+
+.MuiCardHeader-title,
+.MuiButton-root {
+  font-family: 'Biotif-Bold' !important;
+}
+
+.MuiGrid-root {
+  width: 100%;
+  justify-content: center;
+}
+
+.MuiCardActions-root {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.skel-row {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.skel-col {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,3 +1,23 @@
+
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardActions from '@mui/material/CardActions';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+
+import jazeeraLogo from '../images/al-jazeera-logo.png';
+import bbcLogo from '../images/bbc-logo.png';
+import APlogo from '../images/associatedpress.png';
+import formatTimeAgo from './TimeFormat';
+import Link from '@material-ui/core/Link';
+import TagButtons from './TagButtons';
+
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -35,6 +55,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
+
 const getIcon = (publisher) => {
   if (publisher === "Associated Press") {
     return APlogo;
@@ -45,14 +66,11 @@ const getIcon = (publisher) => {
   }
 };
 
-const NewsCard = ({
-  publisher,
-  publish_date,
-  image_url,
-  headline,
-  sub_headline,
-  src_url,
-}) => {
+
+const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url, tag_list }) => {
+
+
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -60,13 +78,16 @@ const NewsCard = ({
   };
 
   const style = {
-    width: "100%",
-    maxWidth: 360,
-    bgcolor: "background.paper",
+    width: '100%',
+    maxWidth: 500,
+    height: 350,
+    bgcolor: 'background.paper',
+    margin: '1em',
   };
 
   return (
-    <Card sx={{ maxWidth: 400 }} style={{ margin: "1em" }}>
+    <Card style={style}>
+
       <CardHeader
         avatar={
           <Avatar
@@ -86,41 +107,20 @@ const NewsCard = ({
       />
       <CardMedia component="img" height="194" src={image_url} alt="Image" />
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <BookmarkAddIcon />
-        </IconButton>
-        <Link href={src_url} target="_blank">
-          <NewspaperIcon />
-        </Link>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
+
+        <div className="card-buttons">
+          <IconButton aria-label="add to favorites">
+            <BookmarkAddIcon />
+          </IconButton>
+          <Link href={src_url} target="_blank">
+            <IconButton aria-label="source article">
+              <NewspaperIcon />
+            </IconButton>
+          </Link>
+        </div>
+        <TagButtons tag_list={tag_list} />
+
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>{headline}</Typography>
-        </CardContent>
-        <CardContent>
-          <Typography paragraph>How others covered this:</Typography>
-          <List sx={style} component="nav" aria-label="mailbox folders">
-            <ListItem button>
-              <ListItemText primary="Guardian" />
-            </ListItem>
-            <Divider />
-            <ListItem button divider>
-              <ListItemText primary="Al Jazeera" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Associated Press" />
-            </ListItem>
-          </List>
-        </CardContent>
-      </Collapse>
     </Card>
   );
 };
