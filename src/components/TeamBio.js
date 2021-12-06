@@ -46,7 +46,7 @@ export default function TeamBio({
   };
 
   return (
-    <Card sx={{ minWidth: 225 }} className="enlargeOnHover">
+    <Card sx={{ minWidth: 225 }} className="enlargeOnHover" raised="true">
       <CardHeader title={name} style={{ fontSize: "2em" }} align="center" />
       <CardMedia
         component="img"
