@@ -38,7 +38,7 @@ const LogIn = () => {
           }}
         >
           <Typography component="h1" variant="h5">
-              Log in
+              Log In
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -67,7 +67,7 @@ const LogIn = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Log In
             </Button>
             <Link to="/signup" variant="body2">
               {"Don't have an account? Sign Up"}
