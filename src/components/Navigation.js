@@ -9,13 +9,19 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, Link } from "react-router-dom";
 
-const Navigation = ({ themeToggler, handleOpen }) => {
+const Navigation = ({ themeToggler }) => {
   const navigate = useNavigate();
 
-  
   function handleAboutClick() {
     navigate("/about");
   }
+  function handleSignUpClick() {
+    navigate("/signup");
+  }
+  function handleLogInClick() {
+    navigate("/login");
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -30,7 +36,7 @@ const Navigation = ({ themeToggler, handleOpen }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link underline="none" to="/">
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
               Newsforce
             </Link>
           </Typography>
@@ -42,10 +48,12 @@ const Navigation = ({ themeToggler, handleOpen }) => {
           <IconButton onClick={themeToggler}>
             <Brightness6Icon />
           </IconButton>
-          <Button color="inherit" onClick={handleOpen}>
+          <Button color="inherit" onClick={handleSignUpClick}>
             Sign Up
           </Button>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={handleLogInClick}>
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
