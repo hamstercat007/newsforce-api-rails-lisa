@@ -78,3 +78,10 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+.MuiButton-outlinedSizeSmall {
+  font-family: 'Biotif-Bold' !important;
+  font-size: 0.8em !important;
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
+}
