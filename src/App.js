@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -6,6 +7,20 @@ import AboutUs from './components/AboutUs';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import './App.css';
+
+import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./components/globalStyles";
+import { lightTheme, darkTheme } from "./components/Themes";
+import Navigation from "./components/Navigation";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import ModalDialog from "./components/ModalDialog";
+import AboutUs from "./components/AboutUs";
+import SignUp from "./components/SignUp";
+import LogIn from "./components/LogIn";
+
+
 function App() {
   const [theme, setTheme] = useState('light');
   const themeToggler = () => {
