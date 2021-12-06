@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from './components/globalStyles';
-import { lightTheme, darkTheme } from './components/Themes';
 import Navigation from './components/Navigation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
@@ -18,20 +15,14 @@ function App() {
   return (
     <Router>
       <>
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-          <Navigation themeToggler={themeToggler} />
+        <Navigation themeToggler={themeToggler} />
 
-          <>
-            <GlobalStyles />
-
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/login" element={<LogIn />} />
-            </Routes>
-          </>
-        </ThemeProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+        </Routes>
       </>
     </Router>
   );
