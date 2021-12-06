@@ -22,6 +22,7 @@ import bbcLogo from "../images/bbc-logo.png";
 import APlogo from "../images/associatedpress.png";
 import formatTimeAgo from "./TimeFormat";
 import Link from "@material-ui/core/Link";
+import truncate from "./helpers/truncate";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -56,10 +57,6 @@ const NewsCard = ({
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
-
-  const truncate = (str) => {
-    return str.length > 90 ? str.substring(0, 90) + "..." : str;
   };
 
   const style = {
