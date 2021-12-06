@@ -12,7 +12,6 @@ import { useNavigate, Link } from "react-router-dom";
 const Navigation = ({ themeToggler, handleOpen }) => {
   const navigate = useNavigate();
 
-  
   function handleAboutClick() {
     navigate("/about");
   }
@@ -30,7 +29,11 @@ const Navigation = ({ themeToggler, handleOpen }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link underline="none" to="/">
+            <Link
+              to="/"
+              styles={{ textDecoration: "none", color: "inherit" }}
+              className="nav-title"
+            >
               Newsforce
             </Link>
           </Typography>
