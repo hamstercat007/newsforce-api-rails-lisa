@@ -50,3 +50,19 @@ a {
 .MuiButton-root {
   font-family: 'Biotif-Bold' !important;
 }
+
+.MuiGrid-root {
+  width: 100%;
+  justify-content: center;
+}
+
+.MuiCardActions-root {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

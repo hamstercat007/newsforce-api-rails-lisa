@@ -29,7 +29,7 @@ const Home = () => {
         {data &&
           data.length > 0 &&
           data.map((item) => (
-            <Grid item key={item.id} xs={12} sm={6} md={4} style={{ minWidth: '350px' }}>
+            <Grid item key={item.id} xs={12} sm={6} md={5}>
               <NewsCard
                 key={item.id}
                 publisher={item.publisher}
