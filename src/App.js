@@ -5,6 +5,7 @@ import { lightTheme, darkTheme } from "./components/Themes";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import ModalDialog from "./components/ModalDialog";
 import AboutUs from "./components/AboutUs";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";

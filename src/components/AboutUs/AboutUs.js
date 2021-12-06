@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid"
+
 
 const AboutUs = () => {
   return (
@@ -14,7 +16,7 @@ const AboutUs = () => {
       }}
     >
       <CardContent>
-        <h2 style={{ padding:'0.5em'}}>About Us - A Force for Good</h2>
+        <h2 data-testid="aboutUsTitle" style={{ padding:'0.5em'}}>About Us - A Force for Good</h2>
 
         <p>
           Four aspirational students met at a software engineering school in
