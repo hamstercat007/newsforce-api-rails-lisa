@@ -8,7 +8,7 @@ export default function TagButtons({ tag_list }) {
     <Stack spacing={2} direction="row">
       {tag_list.map((tag) => {
         return (
-          <Button variant="outlined" size="small" color="error">
+          <Button key={tag_list.indexOf(tag)} variant="outlined" size="small" color="error">
             {tag}
           </Button>
         );

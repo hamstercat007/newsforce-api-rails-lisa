@@ -85,3 +85,45 @@ a {
   padding-top: 0.3em !important;
   padding-bottom: 0.3em !important;
 }
+
+/* .africa:hover {
+  fill: #4c7f3f;
+}
+.asia:hover {
+  fill: #ff0000;
+}
+.europe:hover {
+  fill: #d56cff;
+}
+.north:hover {
+  fill: #132bff;
+}
+.south:hover {
+  fill: #47ce70;
+}
+.middle:hover {
+  fill: #ffc400;
+} */
+
+.tag-map {
+  margin: 2em;
+  width: 50%;
+}
+
+.MuiCollapse-wrapper {
+  max-height: 80vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.flex-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
