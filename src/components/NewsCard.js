@@ -22,6 +22,7 @@ import bbcLogo from '../images/bbc-logo.png';
 import APlogo from '../images/associatedpress.png';
 import formatTimeAgo from './TimeFormat';
 import Link from '@material-ui/core/Link';
+import TagButtons from './TagButtons';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -44,7 +45,7 @@ const getIcon = (publisher) => {
   }
 };
 
-const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url }) => {
+const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url, tag_list }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -77,6 +78,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
         <Link href={src_url} target="_blank">
           <NewspaperIcon />
         </Link>
+        <TagButtons tag_list={tag_list} />
         <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
           <ExpandMoreIcon />
         </ExpandMore>
