@@ -1,50 +1,52 @@
-body {
-  margin: 0;
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {
-  font-family: 'IBMPlex-SemiBold';
-  src: local('IBMPlex-SemiBold'), url('./fonts/IBMPlex/IBMPlex-SemiBold.ttf') format('truetype');
+  font-family: 'Biotif-Black';
+  src: local('Biotif-Black'), url('./fonts/Biotif/Biotif-Black.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'IBMPlex-Bold';
-  src: local('IBMPlex-Bold'), url('./fonts/IBMPlex/IBMPlex-Bold.ttf') format('truetype');
+  font-family: 'Biotif-Bold';
+  src: local('Biotif-Bold'), url('./fonts/Biotif/Biotif-Bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'IBMPlex-Light';
-  src: local('IBMPlex-Light'), url('./fonts/IBMPlex/IBMPlex-Light.ttf') format('truetype');
+  font-family: 'Biotif-Book';
+  src: local('Biotif-Book'), url('./fonts/Biotif/Biotif-Book.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: 'IBMPlex-Medium';
-  src: local('IBMPlex-Medium'), url('./fonts/IBMPlex/IBMPlex-Medium.ttf') format('truetype');
-}
-
-h1 {
-  font-family: 'IBMPlex-Bold';
+h1,
+h2,
+th {
+  font-family: 'Biotif-Black';
 }
 
 h3,
-h4 {
-  font-family: 'IBMPlex-SemiBold';
+h4,
+h5 {
+  font-family: 'Biotif-Bold';
 }
 
-h5,
-h6 {
-  font-family: 'IBMPlex-Medium';
-}
-
+h6,
 p,
 li,
 a {
-  font-family: 'IBMPlex-Light';
+  font-family: 'Biotif-Book';
+}
+
+.MuiCardHeader-subheader {
+  font-family: 'Biotif-Book' !important;
 }
 
 .nav-title {
-  font-family: 'IBMPlex-Bold' !important;
+  font-family: 'Biotif-Black' !important;
   font-size: 0.8em;
+}
+
+.MuiCardHeader-title,
+.MuiButton-root {
+  font-family: 'Biotif-Bold' !important;
 }
