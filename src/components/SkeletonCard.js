@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Skeleton from '@mui/material/Skeleton';
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -10,13 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
-
-import jazeeraLogo from '../images/al-jazeera-logo.png';
-import bbcLogo from '../images/bbc-logo.png';
-import APlogo from '../images/associatedpress.png';
-import formatTimeAgo from './TimeFormat';
 import Link from '@material-ui/core/Link';
-import TagButtons from './TagButtons';
 
 const SkeletonCard = () => {
   const style = {
