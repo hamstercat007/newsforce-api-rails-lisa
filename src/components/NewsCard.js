@@ -37,6 +37,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
   const style = {
     width: '100%',
     maxWidth: 500,
+    height: 350,
     bgcolor: 'background.paper',
     margin: '1em',
   };
