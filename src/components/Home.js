@@ -23,7 +23,7 @@ const Home = () => {
     setSearchInput(searchValue);
     if (searchInput !== '') {
       const filteredData = data.filter((item) => {
-        return Object.values(item.publisher).join('').toLowerCase().includes(searchInput.toLowerCase());
+        return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase());
       });
       setFilteredResults(filteredData);
     } else {
@@ -33,7 +33,16 @@ const Home = () => {
 
   const handleToggle = (inputValue) => {
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
+    console.log(filt);
     setToggleList(filt);
+    if (toggleList.length !== 3) {
+      const filteredData = data.filter((item) => {
+        return toggleList.includes(item.publisher);
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(data);
+    }
   };
 
   const getData = () => {
@@ -74,13 +83,19 @@ const Home = () => {
             <FormControlLabel control={<Switch defaultChecked />} label="Europe" />
             <FormControlLabel control={<Switch defaultChecked />} label="North America" />
             <FormControlLabel control={<Switch defaultChecked />} label="South America" />
-            <FormControlLabel control={<Switch defaultChecked onChange={(e) => handleToggle('Al Jazeera')} />} label="Al Jazeera" />
-            <FormControlLabel control={<Switch defaultChecked onChange={(e) => handleToggle('Associated Press')} />} label="Associated Press" />
-            <FormControlLabel control={<Switch defaultChecked onChange={(e) => handleToggle('BBC News')} />} label="BBC News" />
+            <FormControlLabel
+              control={<Switch defaultChecked value="Al Jazeera" onChange={(e) => handleToggle(e.target.value)} />}
+              label="Al Jazeera"
+            />
+            <FormControlLabel
+              control={<Switch defaultChecked value="Associated Press" onChange={(e) => handleToggle(e.target.value)} />}
+              label="Associated Press"
+            />
+            <FormControlLabel control={<Switch defaultChecked value="BBC News" onChange={(e) => handleToggle(e.target.value)} />} label="BBC News" />
           </div>
           <h4>ToggleList = {toggleList}</h4>
           <Grid container spacing={0}>
-            {searchInput.length > 1
+            {toggleList.length < 3
               ? filteredResults &&
                 filteredResults.length > 0 &&
                 filteredResults.map((item) => (
