@@ -3,6 +3,9 @@ import NewsCard from './NewsCard';
 import Grid from '@mui/material/Grid';
 import { useState, useEffect } from 'react';
 import SkeletonCard from './SkeletonCard';
+import LazyLoad from 'react-lazyload';
+
+
 
 const Home = () => {
   const [data, setData] = useState([]);
