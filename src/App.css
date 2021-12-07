@@ -133,6 +133,7 @@ a {
   font-family: 'Biotif-Bold' !important;
 }
 
-#standard-basic {
+.MuiTextField-root,
+.MuiInputLabel-root {
   font-family: 'Biotif-Book' !important;
 }
