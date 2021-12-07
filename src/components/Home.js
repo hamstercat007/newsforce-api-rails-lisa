@@ -4,10 +4,28 @@ import Grid from '@mui/material/Grid';
 import { useState, useEffect } from 'react';
 import Navigation from './Navigation';
 import SkeletonGrid from './SkeletonGrid';
+import TextField from '@mui/material/TextField';
+
 const Home = () => {
   const [data, setData] = useState([]);
 
   const [loading, setLoading] = useState(false);
+
+  const [searchInput, setSearchInput] = useState('');
+
+  const [filteredResults, setFilteredResults] = useState([]);
+
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchInput !== '') {
+      const filteredData = data.filter((item) => {
+        return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(data);
+    }
+  };
 
   const getData = () => {
     fetch('sample_data.json', {
@@ -33,48 +51,49 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const filtPubs = ['BBC News'];
-  const filtConts = ['ASIA'];
-
-  const continentMatch = (arr1, arr2) => {
-    for (let i = 0; i < arr1.length; i++) {
-      for (let j = 0; j < arr2.length; j++) {
-        if (arr1[i] === arr2[j]) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
-
-  const pub_data = data.filter((item) => !filtPubs.includes(item.publisher));
-
-  const filtered_data = pub_data.filter((item) => !continentMatch(item.tag_list, filtConts));
-
   return (
     <div className="App">
       {loading && <SkeletonGrid />}
       {!loading && (
         <>
           <Navigation />
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" onChange={(e) => searchItems(e.target.value)} />
           <Grid container spacing={0}>
-            {filtered_data &&
-              filtered_data.length > 0 &&
-              filtered_data.map((item) => (
-                <Grid item key={item.id} xs={12} sm={6} md={5}>
-                  <NewsCard
-                    key={item.id}
-                    publisher={item.publisher}
-                    publish_date={item.publish_date}
-                    image_url={item.image_url}
-                    headline={item.headline}
-                    sub_headline={item.sub_headline}
-                    article_body={item.article_body}
-                    src_url={item.source_url}
-                    tag_list={item.tag_list}
-                  />
-                </Grid>
-              ))}
+            {searchInput.length > 1
+              ? filteredResults &&
+                filteredResults.length > 0 &&
+                filteredResults.map((item) => (
+                  <Grid item key={item.id} xs={12} sm={6} md={5}>
+                    <NewsCard
+                      key={item.id}
+                      publisher={item.publisher}
+                      publish_date={item.publish_date}
+                      image_url={item.image_url}
+                      headline={item.headline}
+                      sub_headline={item.sub_headline}
+                      article_body={item.article_body}
+                      src_url={item.source_url}
+                      tag_list={item.tag_list}
+                    />
+                  </Grid>
+                ))
+              : data &&
+                data.length > 0 &&
+                data.map((item) => (
+                  <Grid item key={item.id} xs={12} sm={6} md={5}>
+                    <NewsCard
+                      key={item.id}
+                      publisher={item.publisher}
+                      publish_date={item.publish_date}
+                      image_url={item.image_url}
+                      headline={item.headline}
+                      sub_headline={item.sub_headline}
+                      article_body={item.article_body}
+                      src_url={item.source_url}
+                      tag_list={item.tag_list}
+                    />
+                  </Grid>
+                ))}
           </Grid>
         </>
       )}
