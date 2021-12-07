@@ -2,14 +2,13 @@ import React from 'react';
 import NewsCard from './NewsCard';
 import Grid from '@mui/material/Grid';
 import { useState, useEffect } from 'react';
-import SkeletonCard from './SkeletonCard';
 import Navigation from './Navigation';
-
+import SkeletonGrid from './SkeletonGrid';
 const Home = () => {
   const [data, setData] = useState([]);
 
   const [loading, setLoading] = useState(false);
-  const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
   const getData = () => {
     fetch('https://newsforce-api.herokuapp.com/index', {
       headers: {
@@ -38,20 +37,7 @@ const Home = () => {
 
   return (
     <div className="App">
-      {loading && (
-        <>
-          <Navigation />
-          <Grid container spacing={0}>
-            {skelArr.map((skel) => {
-              return (
-                <Grid key={skel + 'grid'} item xs={12} sm={6} md={5}>
-                  <SkeletonCard key={skel + 'skel'} typeskel={skel} />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </>
-      )}
+      {loading && <SkeletonGrid />}
       {!loading && (
         <>
           <Navigation />
