@@ -6,16 +6,31 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { Navigate } from 'react-router-dom';
 
 const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    // Update this with API call to user db
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+
+    const creds = { "user": {"email": data.get('email'), "password": data.get('password') }};
+
+    fetch('https://newsforce-api.herokuapp.com/api/signup', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(creds),
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      <Navigate to="/" replace />
+    })
+    .catch((error) => {
+      console.error('Error:', error);
     });
+    
   };
 
   return (
@@ -41,25 +56,6 @@ const SignUp = () => {
               Sign Up
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              autoComplete="given-name"
-              name="firstName"
-              required
-              fullWidth
-              id="firstName"
-              label="First Name"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="lastName"
-              label="Last Name"
-              name="lastName"
-              autoComplete="family-name"
-            />
             <TextField
               margin="normal"
               required
