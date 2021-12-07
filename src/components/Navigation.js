@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const Navigation = ({ searchBar }) => {
+const Navigation = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -53,7 +53,6 @@ const Navigation = ({ searchBar }) => {
                 NEWSFORCE
               </Link>
             </Typography>
-            {searchBar}
           </>
           <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
             <ExpandMoreIcon />

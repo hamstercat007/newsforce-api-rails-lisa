@@ -13,23 +13,9 @@ const Home = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // const [searchInput, setSearchInput] = useState('');
-
   const [filteredResults, setFilteredResults] = useState([]);
 
   const [toggleList, setToggleList] = useState(['BBC News', 'Al Jazeera English', 'Associated Press', 'Asia', '']);
-
-  // const searchItems = (searchValue) => {
-  //   setSearchInput(searchValue);
-  //   if (searchInput !== '') {
-  //     const filteredData = data.filter((item) => {
-  //       return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase());
-  //     });
-  //     setFilteredResults(filteredData);
-  //   } else {
-  //     setFilteredResults(data);
-  //   }
-  // };
 
   const handleToggle = (inputValue) => {
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
@@ -72,7 +58,7 @@ const Home = () => {
       {loading && <SkeletonGrid />}
       {!loading && (
         <>
-          <Navigation searchBar={<TextField id="standard-basic" label="Search..." variant="standard" />} />
+          <Navigation />
           <div className="flex-row">
             <FormControlLabel control={<Switch defaultChecked />} label="Africa" />
             <FormControlLabel
