@@ -6,8 +6,11 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import {useNavigate} from 'react-router-dom';
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -16,6 +19,25 @@ const SignUp = () => {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    const creds = { "session": {"email": data.get('email'), "password": data.get('password') }};
+
+    fetch('https://localhost:3000/api/signup', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(creds),
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      navigate('/')
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    
   };
 
   return (
