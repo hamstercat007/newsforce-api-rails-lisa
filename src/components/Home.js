@@ -10,7 +10,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   const getData = () => {
-    fetch('https://newsforce-api.herokuapp.com/index', {
+    fetch('sample_data.json', {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -24,16 +24,16 @@ const Home = () => {
       });
   };
 
-  const data_filter = data.filter((element) => element.publisher !== 'BBC News');
-
   useEffect(() => {
     setLoading(true);
     getData();
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  const filtered_data = data.filter((item) => item.publisher);
 
   return (
     <div className="App">
@@ -42,9 +42,9 @@ const Home = () => {
         <>
           <Navigation />
           <Grid container spacing={0}>
-            {data_filter &&
-              data_filter.length > 0 &&
-              data_filter.map((item) => (
+            {filtered_data &&
+              filtered_data.length > 0 &&
+              filtered_data.map((item) => (
                 <Grid item key={item.id} xs={12} sm={6} md={5}>
                   <NewsCard
                     key={item.id}
