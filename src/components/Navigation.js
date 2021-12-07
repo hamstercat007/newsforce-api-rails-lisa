@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const Navigation = ({ themeToggler }) => {
+const Navigation = ({ searchBar }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -47,14 +47,14 @@ const Navigation = ({ themeToggler }) => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
         <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} className="nav-title">
-              NEWSFORCE
-            </Link>
-          </Typography>
+          <>
+            <Typography variant="h3" component="div">
+              <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} className="nav-title">
+                NEWSFORCE
+              </Link>
+            </Typography>
+            {searchBar}
+          </>
           <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
             <ExpandMoreIcon />
           </ExpandMore>

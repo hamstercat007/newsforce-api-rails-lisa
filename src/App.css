@@ -44,6 +44,7 @@ a {
 .nav-title {
   font-family: 'Biotif-Black' !important;
   font-size: 0.8em;
+  margin-right: 1em;
 }
 
 .MuiCardHeader-title,
@@ -130,4 +131,8 @@ a {
 
 .MuiFormControlLabel-label {
   font-family: 'Biotif-Bold' !important;
+}
+
+#standard-basic {
+  font-family: 'Biotif-Book' !important;
 }

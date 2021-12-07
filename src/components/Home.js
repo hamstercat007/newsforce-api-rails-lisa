@@ -56,8 +56,10 @@ const Home = () => {
       {loading && <SkeletonGrid />}
       {!loading && (
         <>
-          <Navigation />
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" onChange={(e) => searchItems(e.target.value)} />
+          <Navigation
+            searchBar={<TextField id="standard-basic" label="Search..." variant="standard" onChange={(e) => searchItems(e.target.value)} />}
+          />
+
           <Grid container spacing={0}>
             {searchInput.length > 1
               ? filteredResults &&
