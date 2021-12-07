@@ -7,6 +7,7 @@ import Navigation from './Navigation';
 
 const Home = () => {
   const [data, setData] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const getData = () => {
@@ -24,12 +25,14 @@ const Home = () => {
       });
   };
 
+  const data_filter = data.filter((element) => element.publisher !== 'BBC News');
+
   useEffect(() => {
     setLoading(true);
     getData();
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -53,9 +56,9 @@ const Home = () => {
         <>
           <Navigation />
           <Grid container spacing={0}>
-            {data &&
-              data.length > 0 &&
-              data.map((item) => (
+            {data_filter &&
+              data_filter.length > 0 &&
+              data_filter.map((item) => (
                 <Grid item key={item.id} xs={12} sm={6} md={5}>
                   <NewsCard
                     key={item.id}
