@@ -3,14 +3,16 @@ import NewsCard from "./NewsCard";
 import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
 import SkeletonCard from "./SkeletonCard";
-import LazyLoad from "react-lazyload";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(3);
   const [loading, setLoading] = useState(false);
   const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const getData = () => {
-    fetch("https://newsforce-api.herokuapp.com/index", {
+    fetch(`http://localhost:3000/index?page=${page}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -20,7 +22,9 @@ const Home = () => {
         return response.json();
       })
       .then(function (myJson) {
-        setData(myJson);
+        setData(data.concat(myJson.data));
+        setPage(page + 1);
+        setLastPage(myJson.pagy.last);
       });
   };
 
@@ -48,11 +52,20 @@ const Home = () => {
       )}
       {!loading && (
         <Grid container spacing={0}>
-          {data &&
-            data.length > 0 &&
-            data.map((item) => (
-              <Grid item key={item.id} xs={12} sm={6} md={5}>
-                <LazyLoad height={200}>
+          {data && data.length > 0 && (
+            <InfiniteScroll
+              dataLength={data.length} //This is important field to render the next data
+              next={getData}
+              hasMore={page <= lastPage}
+              loader={<h4>Loading...</h4>}
+              endMessage={
+                <p style={{ textAlign: "center" }}>
+                  <b>Enter the Ruby Hall of Fame</b>
+                </p>
+              }
+            >
+              {data.map((item) => (
+                <Grid item key={item.id} xs={12} sm={6} md={5}>
                   <NewsCard
                     key={item.id}
                     publisher={item.publisher}
@@ -64,9 +77,10 @@ const Home = () => {
                     src_url={item.source_url}
                     tag_list={item.tag_list}
                   />
-                </LazyLoad>
-              </Grid>
-            ))}
+                </Grid>
+              ))}
+            </InfiniteScroll>
+          )}
         </Grid>
       )}
     </div>
