@@ -29,11 +29,27 @@ const Home = () => {
     getData();
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
-  const filtered_data = data.filter((item) => item.publisher);
+  const filtPubs = ['BBC News'];
+  const filtConts = ['ASIA'];
+
+  const continentMatch = (arr1, arr2) => {
+    for (let i = 0; i < arr1.length; i++) {
+      for (let j = 0; j < arr2.length; j++) {
+        if (arr1[i] === arr2[j]) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  const pub_data = data.filter((item) => !filtPubs.includes(item.publisher));
+
+  const filtered_data = pub_data.filter((item) => !continentMatch(item.tag_list, filtConts));
 
   return (
     <div className="App">
