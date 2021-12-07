@@ -26,7 +26,7 @@ const getIcon = (publisher) => {
   }
 };
 
-const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url, continent }) => {
+const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url, tag_list }) => {
   const style = {
     width: '100%',
     maxWidth: 500,
@@ -59,7 +59,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
             </IconButton>
           </Link>
         </div>
-        <TagButtons continent={continent} />
+        <TagButtons tag_list={tag_list} />
       </CardActions>
     </Card>
   );

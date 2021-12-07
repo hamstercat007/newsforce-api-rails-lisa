@@ -15,7 +15,17 @@ const Home = () => {
 
   const [filteredResults, setFilteredResults] = useState([]);
 
-  const [toggleList, setToggleList] = useState(['BBC News', 'Al Jazeera English', 'Associated Press', 'Asia', '']);
+  const [toggleList, setToggleList] = useState([
+    'BBC News',
+    'Al Jazeera English',
+    'Associated Press',
+    'asia',
+    'europe',
+    'north-america',
+    'middle-east',
+    'south-america',
+    'africa',
+  ]);
 
   const handleToggle = (inputValue) => {
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
@@ -24,13 +34,13 @@ const Home = () => {
       .filter((item) => {
         return filt.includes(item.publisher);
       })
-      .filter((item) => filt.includes(item.continent));
+      .filter((item) => filt.some((r) => item.tag_list.includes(r)));
     console.log(filteredData);
     setFilteredResults(filteredData);
   };
 
   const getData = () => {
-    fetch('sample_data.json', {
+    fetch('https://newsforce-api.herokuapp.com/index', {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -60,14 +70,30 @@ const Home = () => {
         <>
           <Navigation />
           <div className="flex-row">
-            <FormControlLabel control={<Switch defaultChecked />} label="Africa" />
             <FormControlLabel
-              control={<Switch defaultChecked value="Asia" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              control={<Switch defaultChecked value="africa" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              label="Africa"
+            />
+            <FormControlLabel
+              control={<Switch defaultChecked value="middle-east" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              label="Middle East"
+            />
+            <FormControlLabel
+              control={<Switch defaultChecked value="asia" onChange={(al_event) => handleToggle(al_event.target.value)} />}
               label="Asia"
             />
-            <FormControlLabel control={<Switch defaultChecked />} label="Europe" />
-            <FormControlLabel control={<Switch defaultChecked />} label="North America" />
-            <FormControlLabel control={<Switch defaultChecked />} label="South America" />
+            <FormControlLabel
+              control={<Switch defaultChecked value="europe" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              label="Europe"
+            />
+            <FormControlLabel
+              control={<Switch defaultChecked value="north-america" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              label="North America"
+            />
+            <FormControlLabel
+              control={<Switch defaultChecked value="south-america" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              label="South America"
+            />
             <FormControlLabel
               control={<Switch defaultChecked value="Al Jazeera English" onChange={(al_event) => handleToggle(al_event.target.value)} />}
               label="Al Jazeera"
@@ -83,7 +109,7 @@ const Home = () => {
           </div>
           <h4>ToggleList = {toggleList}</h4>
           <Grid container spacing={0}>
-            {toggleList.length < 5
+            {toggleList.length < 9
               ? filteredResults &&
                 filteredResults.length > 0 &&
                 filteredResults.map((item) => (
@@ -97,7 +123,7 @@ const Home = () => {
                       sub_headline={item.sub_headline}
                       article_body={item.article_body}
                       src_url={item.source_url}
-                      continent={item.continent}
+                      tag_list={item.tag_list}
                     />
                   </Grid>
                 ))
@@ -114,7 +140,7 @@ const Home = () => {
                       sub_headline={item.sub_headline}
                       article_body={item.article_body}
                       src_url={item.source_url}
-                      continent={item.continent}
+                      tag_list={item.tag_list}
                     />
                   </Grid>
                 ))}
