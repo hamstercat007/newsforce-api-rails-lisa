@@ -13,30 +13,31 @@ const Home = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const [searchInput, setSearchInput] = useState('');
+  // const [searchInput, setSearchInput] = useState('');
 
   const [filteredResults, setFilteredResults] = useState([]);
 
-  const [toggleList, setToggleList] = useState(['BBC News', 'Al Jazeera', 'Associated Press']);
+  const [toggleList, setToggleList] = useState(['BBC News', 'Al Jazeera English', 'Associated Press']);
 
-  const searchItems = (searchValue) => {
-    setSearchInput(searchValue);
-    if (searchInput !== '') {
-      const filteredData = data.filter((item) => {
-        return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase());
-      });
-      setFilteredResults(filteredData);
-    } else {
-      setFilteredResults(data);
-    }
-  };
+  // const searchItems = (searchValue) => {
+  //   setSearchInput(searchValue);
+  //   if (searchInput !== '') {
+  //     const filteredData = data.filter((item) => {
+  //       return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase());
+  //     });
+  //     setFilteredResults(filteredData);
+  //   } else {
+  //     setFilteredResults(data);
+  //   }
+  // };
 
   const handleToggle = (inputValue) => {
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
     setToggleList(filt);
     const filteredData = data.filter((item) => {
-      return toggleList.includes(item.publisher);
+      return filt.includes(item.publisher);
     });
+    console.log(filteredData);
     setFilteredResults(filteredData);
   };
 
@@ -69,9 +70,7 @@ const Home = () => {
       {loading && <SkeletonGrid />}
       {!loading && (
         <>
-          <Navigation
-            searchBar={<TextField id="standard-basic" label="Search..." variant="standard" onChange={(e) => searchItems(e.target.value)} />}
-          />
+          <Navigation searchBar={<TextField id="standard-basic" label="Search..." variant="standard" />} />
           <div className="flex-row">
             <FormControlLabel control={<Switch defaultChecked />} label="Africa" />
             <FormControlLabel control={<Switch defaultChecked />} label="Asia" />
@@ -79,7 +78,7 @@ const Home = () => {
             <FormControlLabel control={<Switch defaultChecked />} label="North America" />
             <FormControlLabel control={<Switch defaultChecked />} label="South America" />
             <FormControlLabel
-              control={<Switch defaultChecked value="Al Jazeera" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              control={<Switch defaultChecked value="Al Jazeera English" onChange={(al_event) => handleToggle(al_event.target.value)} />}
               label="Al Jazeera"
             />
             <FormControlLabel
