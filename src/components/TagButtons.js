@@ -3,16 +3,12 @@ import Stack from '@mui/material/Stack';
 
 import Button from '@mui/material/Button';
 
-export default function TagButtons({ tag_list }) {
+export default function TagButtons({ continent }) {
   return (
     <Stack spacing={2} direction="row">
-      {tag_list.map((tag) => {
-        return (
-          <Button key={tag_list.indexOf(tag)} variant="outlined" size="small" color="error">
-            {tag}
-          </Button>
-        );
-      })}
+      <Button variant="outlined" size="small" color="error">
+        {continent}
+      </Button>
     </Stack>
   );
 }

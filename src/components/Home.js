@@ -17,7 +17,7 @@ const Home = () => {
 
   const [filteredResults, setFilteredResults] = useState([]);
 
-  const [toggleList, setToggleList] = useState(['BBC News', 'Al Jazeera English', 'Associated Press']);
+  const [toggleList, setToggleList] = useState(['BBC News', 'Al Jazeera English', 'Associated Press', 'Asia', '']);
 
   // const searchItems = (searchValue) => {
   //   setSearchInput(searchValue);
@@ -34,9 +34,11 @@ const Home = () => {
   const handleToggle = (inputValue) => {
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
     setToggleList(filt);
-    const filteredData = data.filter((item) => {
-      return filt.includes(item.publisher);
-    });
+    const filteredData = data
+      .filter((item) => {
+        return filt.includes(item.publisher);
+      })
+      .filter((item) => filt.includes(item.continent));
     console.log(filteredData);
     setFilteredResults(filteredData);
   };
@@ -73,7 +75,10 @@ const Home = () => {
           <Navigation searchBar={<TextField id="standard-basic" label="Search..." variant="standard" />} />
           <div className="flex-row">
             <FormControlLabel control={<Switch defaultChecked />} label="Africa" />
-            <FormControlLabel control={<Switch defaultChecked />} label="Asia" />
+            <FormControlLabel
+              control={<Switch defaultChecked value="Asia" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+              label="Asia"
+            />
             <FormControlLabel control={<Switch defaultChecked />} label="Europe" />
             <FormControlLabel control={<Switch defaultChecked />} label="North America" />
             <FormControlLabel control={<Switch defaultChecked />} label="South America" />
@@ -92,7 +97,7 @@ const Home = () => {
           </div>
           <h4>ToggleList = {toggleList}</h4>
           <Grid container spacing={0}>
-            {toggleList.length < 3
+            {toggleList.length < 5
               ? filteredResults &&
                 filteredResults.length > 0 &&
                 filteredResults.map((item) => (
@@ -106,7 +111,7 @@ const Home = () => {
                       sub_headline={item.sub_headline}
                       article_body={item.article_body}
                       src_url={item.source_url}
-                      tag_list={item.tag_list}
+                      continent={item.continent}
                     />
                   </Grid>
                 ))
@@ -123,7 +128,7 @@ const Home = () => {
                       sub_headline={item.sub_headline}
                       article_body={item.article_body}
                       src_url={item.source_url}
-                      tag_list={item.tag_list}
+                      continent={item.continent}
                     />
                   </Grid>
                 ))}
