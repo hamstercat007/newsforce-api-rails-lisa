@@ -33,16 +33,11 @@ const Home = () => {
 
   const handleToggle = (inputValue) => {
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
-    console.log(filt);
     setToggleList(filt);
-    if (toggleList.length !== 3) {
-      const filteredData = data.filter((item) => {
-        return toggleList.includes(item.publisher);
-      });
-      setFilteredResults(filteredData);
-    } else {
-      setFilteredResults(data);
-    }
+    const filteredData = data.filter((item) => {
+      return toggleList.includes(item.publisher);
+    });
+    setFilteredResults(filteredData);
   };
 
   const getData = () => {
@@ -84,14 +79,17 @@ const Home = () => {
             <FormControlLabel control={<Switch defaultChecked />} label="North America" />
             <FormControlLabel control={<Switch defaultChecked />} label="South America" />
             <FormControlLabel
-              control={<Switch defaultChecked value="Al Jazeera" onChange={(e) => handleToggle(e.target.value)} />}
+              control={<Switch defaultChecked value="Al Jazeera" onChange={(al_event) => handleToggle(al_event.target.value)} />}
               label="Al Jazeera"
             />
             <FormControlLabel
-              control={<Switch defaultChecked value="Associated Press" onChange={(e) => handleToggle(e.target.value)} />}
+              control={<Switch defaultChecked value="Associated Press" onChange={(ap_event) => handleToggle(ap_event.target.value)} />}
               label="Associated Press"
             />
-            <FormControlLabel control={<Switch defaultChecked value="BBC News" onChange={(e) => handleToggle(e.target.value)} />} label="BBC News" />
+            <FormControlLabel
+              control={<Switch defaultChecked value="BBC News" onChange={(bbc_event) => handleToggle(bbc_event.target.value)} />}
+              label="BBC News"
+            />
           </div>
           <h4>ToggleList = {toggleList}</h4>
           <Grid container spacing={0}>
