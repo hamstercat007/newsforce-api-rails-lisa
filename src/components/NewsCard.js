@@ -29,7 +29,7 @@ const getIcon = (publisher) => {
 const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url, tag_list }) => {
   const style = {
     width: '100%',
-    maxWidth: 500,
+    maxWidth: 400,
     height: 350,
     bgcolor: 'background.paper',
     margin: '1em',
