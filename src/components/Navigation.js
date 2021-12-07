@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const Navigation = () => {
+const Navigation = ({ handleToggle }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -70,7 +70,7 @@ const Navigation = () => {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <Divider light />
           <div className="flex-row">
-            <TagCloud />
+            <TagCloud handleToggle={handleToggle} />
           </div>
         </Collapse>
       </AppBar>
