@@ -83,7 +83,7 @@ a {
 }
 
 .spinner {
-  animation: spin infinite 5s linear;
+  animation: spin infinite 2s linear;
 
   /*You can increase or decrease the timer (5s) to 
    increase or decrease the speed of the spinner*/

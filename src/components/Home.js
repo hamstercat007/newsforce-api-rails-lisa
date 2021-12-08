@@ -6,6 +6,8 @@ import SkeletonCard from "./SkeletonCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import react from "../images/react-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReact, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { blue } from "@mui/material/colors";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -59,13 +61,21 @@ const Home = () => {
           hasMore={page <= lastPage}
           loader={<h4>Loading...</h4>}
           endMessage={
-            <p style={{ textAlign: "center" }}>
-              <img src={react} style={{ height: "50px" }} />
-              <b>Enter the React Hall of Fame</b>
-              <img src={react} style={{ height: "50px" }} />
+            <p style={{ textAlign: "center", alignItems: "center" }}>
+              {/* <img src={react} style={{ height: "50px" }} /> */}
               <FontAwesomeIcon
                 icon={faReact}
-                style={{ color: blue[500] }}
+                style={{ color: blue[500], marginRight: "0.3em" }}
+                className="spinner"
+              ></FontAwesomeIcon>
+              <h1>Enter the React Hall of Fame</h1>
+              {/* <img src={react} style={{ height: "50px" }} /> */}
+              <FontAwesomeIcon
+                icon={faReact}
+                style={{
+                  color: blue[500],
+                  marginLeft: "0.3em",
+                }}
                 className="spinner"
               ></FontAwesomeIcon>
             </p>
