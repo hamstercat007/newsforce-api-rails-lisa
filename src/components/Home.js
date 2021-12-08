@@ -52,8 +52,10 @@ const Home = () => {
   };
 
   const updateMapFill = (item) => {
-    const continent = document.querySelector(`.${item}`);
-    continent.style.fill === 'rgb(235, 235, 235)' ? (continent.style.fill = 'rgb(0, 0, 0)') : (continent.style.fill = 'rgb(235, 235, 235)');
+    let continent = document.getElementsByClassName(item);
+    [].forEach.call(continent, function (cont) {
+      cont.style.fill === 'rgb(235, 235, 235)' ? (cont.style.fill = 'rgb(0, 0, 0)') : (cont.style.fill = 'rgb(235, 235, 235)');
+    });
   };
 
   useEffect(() => {
