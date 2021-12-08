@@ -12,16 +12,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const Navigation = ({ expanded, setExpanded }) => {
   const navigate = useNavigate();
 
-  function handleAboutClick() {
-    navigate('/about');
-  }
-  function handleSignUpClick() {
-    navigate('/signup');
-  }
-  function handleLogInClick() {
-    navigate('/login');
-  }
-
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -49,13 +39,13 @@ const Navigation = ({ expanded, setExpanded }) => {
           <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
             <ExpandMoreIcon />
           </ExpandMore>
-          <Button color="inherit" onClick={handleAboutClick}>
+          <Button color="inherit" onClick={() => navigate('/about')}>
             About Us
           </Button>
-          <Button color="inherit" onClick={handleSignUpClick}>
+          <Button color="inherit" onClick={() => navigate('/signup')}>
             Sign Up
           </Button>
-          <Button color="inherit" onClick={handleLogInClick}>
+          <Button color="inherit" onClick={() => navigate('/login')}>
             Login
           </Button>
         </Toolbar>
