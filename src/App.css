@@ -140,5 +140,15 @@ a {
 }
 
 .tag-map {
-  width: 65%;
+  width: 15%;
+  margin: 0.2em;
+}
+
+.flex-row-toggles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }

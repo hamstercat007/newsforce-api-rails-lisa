@@ -99,7 +99,7 @@ const Home = () => {
           </ExpandMore>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <Divider light />
-            <div className="flex-row">
+            <div className="flex-row-toggles">
               <TagCloud handleToggle={handleToggle} />
             </div>
           </Collapse>

@@ -28,17 +28,15 @@ const Navigation = () => {
               NEWSFORCE
             </Link>
           </Typography>
-          <>
-            <Button color="inherit" onClick={handleAboutClick}>
-              About Us
-            </Button>
-            <Button color="inherit" onClick={handleSignUpClick}>
-              Sign Up
-            </Button>
-            <Button color="inherit" onClick={handleLogInClick}>
-              Login
-            </Button>
-          </>
+          <Button color="inherit" onClick={handleAboutClick}>
+            About Us
+          </Button>
+          <Button color="inherit" onClick={handleSignUpClick}>
+            Sign Up
+          </Button>
+          <Button color="inherit" onClick={handleLogInClick}>
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
