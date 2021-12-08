@@ -56,7 +56,7 @@ const SignUp = () => {
             }}
           >
             <Typography component="h1" variant="h5">
-              Sign Up
+              Create your account
             </Typography>
 
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

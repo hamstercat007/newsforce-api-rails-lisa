@@ -18,7 +18,7 @@ it('renders without crashing', () => {
 
 it('renders the signup form header', () => {
   render(<SignUp />)
-  expect(screen.getByRole('heading', { name: 'Sign Up' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Create your account' })).toBeInTheDocument();
 });
 
 it('renders the form fields', () => {

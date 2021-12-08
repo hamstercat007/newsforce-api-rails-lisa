@@ -1,10 +1,19 @@
-import { render, screen, cleanup } from "@testing-library/react";
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event'
+
+import '@testing-library/jest-dom'
+
 import App from "./App";
 
-afterEach(cleanup);
+it ('renders without crashing', () => {
+  render(<App />)
+});
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/newsforce/i);
-  expect(linkElement).toBeInTheDocument();
+it('allows you to navigate to other pages', () => {
+  render(<App />)
+  expect(screen.getByText(/newsforce/i)).toBeInTheDocument()
+  const leftClick = {button: 0}
+  userEvent.click(screen.getByText(/Sign Up/i), leftClick)
+  expect(screen.getByText(/Create your account/i)).toBeInTheDocument()
 });
