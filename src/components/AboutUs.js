@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import lisa from "../images/team_bio/lisa-mac.png";
 import arthur from "../images/team_bio/arthur-fincham.jpeg";
 import alex from "../images/team_bio/alex-boyling.jpeg";
-import tom from "../images/team_bio/tom-kellet.jpeg"
+import tom from "../images/team_bio/tom-kellet.jpeg";
 
 const paddingStyles = makeStyles({
   gridContainer: {
@@ -32,7 +32,9 @@ const AboutUs = () => {
         }}
       >
         <CardContent>
-        <h2 data-testid="aboutUsTitle" style={{ padding: '0.5em' }}>About Us - A Force for Good</h2>
+          <h2 data-testid="aboutUsTitle" style={{ padding: "0.5em" }}>
+            About Us - A Force for Good
+          </h2>
 
           <p>
             Four aspirational students met at a software engineering school in
@@ -67,10 +69,7 @@ const AboutUs = () => {
       </Grid>
       <Grid container spacing={4} className={classes.gridContainer}>
         <Grid item xs={12} sm={6} md={3}>
-          <TeamBio></TeamBio>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-        <TeamBio
+          <TeamBio
             name="Alex"
             image_url={alex}
             image_url_alt="Photo of Alex Boyling"
@@ -79,6 +78,8 @@ const AboutUs = () => {
             strength2="Calm and methodical"
             strength3=""
           ></TeamBio>
+          </Grid>
+        <Grid item xs={12} sm={6} md={3}>
           <TeamBio
             name="Arthur"
             image_url={arthur}
@@ -86,7 +87,7 @@ const AboutUs = () => {
             github_url="https://github.com/arthurfincham"
             strength1="Fast coder"
             strength2="Enjoys challenges"
-            strength3=""
+            strength3="Inclusive team player"
           ></TeamBio>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
@@ -102,7 +103,13 @@ const AboutUs = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TeamBio
-          
+            name="Tom"
+            image_url={tom}
+            image_url_alt="Photo of Tom Kellett"
+            github_url="https://github.com/hamstercat007"
+            strength1="Managerial"
+            strength2=""
+            strength3=""
           ></TeamBio>
         </Grid>
       </Grid>
