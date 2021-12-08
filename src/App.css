@@ -47,6 +47,7 @@ a {
 .nav-title {
   font-family: "Biotif-Black" !important;
   font-size: 0.8em;
+  margin-right: 1em;
 }
 
 .MuiCardHeader-title,
@@ -83,7 +84,7 @@ a {
 }
 
 .spinner {
-  animation: spin infinite 5s linear;
+  animation: spin infinite 2s linear;
 
   /*You can increase or decrease the timer (5s) to 
    increase or decrease the speed of the spinner*/
@@ -101,4 +102,57 @@ a {
 .enlargeOnHover:hover {
   transform: scale(1.05);
   transition-duration: 5s;
+}
+.MuiButton-outlinedSizeSmall {
+  font-family: "Biotif-Bold" !important;
+  font-size: 0.8em !important;
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
+}
+
+.tag-map {
+  margin: 2em;
+  width: 50%;
+}
+
+.MuiCollapse-wrapper {
+  max-height: 80vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.flex-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.MuiFormControlLabel-label {
+  font-family: "Biotif-Bold" !important;
+}
+
+.MuiTextField-root,
+.MuiInputLabel-root {
+  font-family: "Biotif-Book" !important;
+}
+
+.tag-map {
+  width: 15%;
+  margin: 0.2em;
+}
+
+.flex-row-toggles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }

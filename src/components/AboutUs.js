@@ -7,6 +7,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Button from "@mui/material/Button";
 import lisa from "../images/team_bio/lisa-mac.png";
+import arthur from "../images/team_bio/arthur-fincham.jpeg";
+import alex from "../images/team_bio/alex-boyling.jpeg";
+import tom from "../images/team_bio/tom-kellet.jpeg"
 
 const paddingStyles = makeStyles({
   gridContainer: {
@@ -67,9 +70,23 @@ const AboutUs = () => {
           <TeamBio></TeamBio>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
+        <TeamBio
+            name="Alex"
+            image_url={alex}
+            image_url_alt="Photo of Alex Boyling"
+            github_url="https://github.com/arthurfincham"
+            strength1="Design skills"
+            strength2="Calm and methodical"
+            strength3=""
+          ></TeamBio>
           <TeamBio
             name="Arthur"
+            image_url={arthur}
+            image_url_alt="Photo of Arthur Fincham"
             github_url="https://github.com/arthurfincham"
+            strength1="Fast coder"
+            strength2="Enjoys challenges"
+            strength3=""
           ></TeamBio>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
@@ -80,11 +97,13 @@ const AboutUs = () => {
             github_url="https://github.com/hamstercat007"
             strength1="Creative"
             strength2="Writer"
-            strength3="Fun"
+            strength3=""
           ></TeamBio>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <TeamBio></TeamBio>
+          <TeamBio
+          
+          ></TeamBio>
         </Grid>
       </Grid>
     </div>

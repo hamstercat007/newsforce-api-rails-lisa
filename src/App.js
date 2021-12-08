@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
-import Navigation from './components/Navigation';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import './App.css';
+import Navigation from './components/Navigation';
 
 function App() {
-  const [theme, setTheme] = useState('light');
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
+  const [expanded, setExpanded] = React.useState(false);
 
   return (
     <Router>
+      <Navigation expanded={expanded} setExpanded={setExpanded} />
       <>
-        <Navigation themeToggler={themeToggler} />
-
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<LogIn />} />
+          <Route key={1} path="/" element={<Home expanded={expanded} />} />
+          <Route key={2} path="/about" element={<AboutUs />} />
+          <Route key={3} path="/signup" element={<SignUp />} />
+          <Route key={4} path="/login" element={<LogIn />} />
         </Routes>
       </>
     </Router>

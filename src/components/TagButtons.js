@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
+
 import Button from '@mui/material/Button';
 
 export default function TagButtons({ tag_list }) {
@@ -7,7 +8,7 @@ export default function TagButtons({ tag_list }) {
     <Stack spacing={2} direction="row">
       {tag_list.map((tag) => {
         return (
-          <Button size="small" variant="outlined">
+          <Button key={tag_list.indexOf(tag)} variant="outlined" size="small" color="error">
             {tag}
           </Button>
         );
