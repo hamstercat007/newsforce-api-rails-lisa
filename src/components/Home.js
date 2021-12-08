@@ -33,7 +33,7 @@ const Home = () => {
     getData();
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -50,38 +50,36 @@ const Home = () => {
           })}
         </Grid>
       )}
-      {!loading && (
-        <Grid container spacing={0}>
-          {data && data.length > 0 && (
-            <InfiniteScroll
-              dataLength={data.length} //This is important field to render the next data
-              next={getData}
-              hasMore={page <= lastPage}
-              loader={<h4>Loading...</h4>}
-              endMessage={
-                <p style={{ textAlign: "center" }}>
-                  <b>Enter the Ruby Hall of Fame</b>
-                </p>
-              }
-            >
-              {data.map((item) => (
-                <Grid item key={item.id} xs={12} sm={6} md={5}>
-                  <NewsCard
-                    key={item.id}
-                    publisher={item.publisher}
-                    publish_date={item.publish_date}
-                    image_url={item.image_url}
-                    headline={item.headline}
-                    sub_headline={item.sub_headline}
-                    article_body={item.article_body}
-                    src_url={item.source_url}
-                    tag_list={item.tag_list}
-                  />
-                </Grid>
-              ))}
-            </InfiniteScroll>
-          )}
-        </Grid>
+      {!loading && data && data.length > 0 && (
+        <InfiniteScroll
+          dataLength={data.length} //This is important field to render the next data
+          next={getData}
+          hasMore={page <= lastPage}
+          loader={<h4>Loading...</h4>}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>Enter the React Hall of Fame</b>
+            </p>
+          }
+        >
+          <Grid container spacing={0}>
+            {data.map((item) => (
+              <Grid item key={item.id} xs={12} sm={6} md={5}>
+                <NewsCard
+                  key={item.id}
+                  publisher={item.publisher}
+                  publish_date={item.publish_date}
+                  image_url={item.image_url}
+                  headline={item.headline}
+                  sub_headline={item.sub_headline}
+                  article_body={item.article_body}
+                  src_url={item.source_url}
+                  tag_list={item.tag_list}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </InfiniteScroll>
       )}
     </div>
   );
