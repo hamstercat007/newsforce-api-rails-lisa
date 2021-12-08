@@ -37,7 +37,7 @@ const AboutUs = () => {
           </h2>
 
           <p>
-            Four aspirational students met at a software engineering school in
+            Four aspirational students met at a software engineering academy in
             London, UK.
           </p>
           <p>
@@ -78,7 +78,7 @@ const AboutUs = () => {
             strength2="Calm and methodical"
             strength3=""
           ></TeamBio>
-          </Grid>
+        </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TeamBio
             name="Arthur"
