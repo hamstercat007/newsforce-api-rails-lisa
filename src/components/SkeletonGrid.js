@@ -1,12 +1,10 @@
 import SkeletonCard from './SkeletonCard';
-import Navigation from './Navigation';
 import Grid from '@mui/material/Grid';
 
 export default function SkeletonGrid() {
   const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   return (
     <>
-      <Navigation />
       <Grid container spacing={0}>
         {skelArr.map((skel) => {
           return (

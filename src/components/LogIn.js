@@ -6,7 +6,6 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import Navigation from './Navigation';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 
 const LogIn = () => {
@@ -20,72 +19,55 @@ const LogIn = () => {
       email: data.get('email'),
       password: data.get('password'),
     });
-    navigate("/");
+    navigate('/');
   };
 
   return (
-
     <>
-      <Navigation />
       <Container component="main" maxWidth="xs">
-      <Card 
-        sx={{
-          maxWidth: 400 ,
-
-          margin: '1em',
-          textAlign: 'center',
-        }}
-      >
-
-        <Box
+        <Card
           sx={{
-            marginTop: 4,
-            marginBottom: 4,
-            mx: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            maxWidth: 400,
+
+            margin: '1em',
+            textAlign: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Box
+            sx={{
+              marginTop: 4,
+              marginBottom: 4,
+              mx: 2,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Typography component="h1" variant="h5">
               Log In
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+              <TextField margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
+              <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
               />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Log In
-            </Button>
-            <Link component={RouterLink} to="/signup" variant="body2">
-              {"Don't have an account? Sign Up"}
-            </Link>
+              <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                Log In
+              </Button>
+              <Link component={RouterLink} to="/signup" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Box>
           </Box>
-        </Box>
-      </Card>
-    </Container>
+        </Card>
+      </Container>
     </>
   );
 };

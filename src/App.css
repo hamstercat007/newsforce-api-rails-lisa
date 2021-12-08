@@ -4,55 +4,52 @@
 }
 
 @font-face {
-  font-family: "Biotif-Black";
-  src: local("Biotif-Black"),
-    url("./fonts/Biotif/Biotif-Black.ttf") format("truetype");
+  font-family: 'Biotif-Black';
+  src: local('Biotif-Black'), url('./fonts/Biotif/Biotif-Black.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Biotif-Bold";
-  src: local("Biotif-Bold"),
-    url("./fonts/Biotif/Biotif-Bold.ttf") format("truetype");
+  font-family: 'Biotif-Bold';
+  src: local('Biotif-Bold'), url('./fonts/Biotif/Biotif-Bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Biotif-Book";
-  src: local("Biotif-Book"),
-    url("./fonts/Biotif/Biotif-Book.ttf") format("truetype");
+  font-family: 'Biotif-Book';
+  src: local('Biotif-Book'), url('./fonts/Biotif/Biotif-Book.ttf') format('truetype');
 }
 
 h1,
 h2,
 th {
-  font-family: "Biotif-Black";
+  font-family: 'Biotif-Black';
 }
 
 h3,
 h4,
 h5 {
-  font-family: "Biotif-Bold";
+  font-family: 'Biotif-Bold';
 }
 
 h6,
 p,
 li,
 a {
-  font-family: "Biotif-Book";
+  font-family: 'Biotif-Book';
 }
 
 .MuiCardHeader-subheader {
-  font-family: "Biotif-Book" !important;
+  font-family: 'Biotif-Book' !important;
 }
 
 .nav-title {
-  font-family: "Biotif-Black" !important;
+  font-family: 'Biotif-Black' !important;
   font-size: 0.8em;
   margin-right: 1em;
 }
 
 .MuiCardHeader-title,
 .MuiButton-root {
-  font-family: "Biotif-Bold" !important;
+  font-family: 'Biotif-Bold' !important;
 }
 
 .MuiGrid-root {
@@ -83,7 +80,6 @@ a {
   flex-direction: column;
 }
 
-
 .spinner {
   animation: spin infinite 2s linear;
 
@@ -98,6 +94,7 @@ a {
   to {
     transform: rotate(360deg);
   }
+}
 
 .MuiButton-outlinedSizeSmall {
   font-family: 'Biotif-Bold' !important;
@@ -105,25 +102,6 @@ a {
   padding-top: 0.3em !important;
   padding-bottom: 0.3em !important;
 }
-
-/* .africa:hover {
-  fill: #4c7f3f;
-}
-.asia:hover {
-  fill: #ff0000;
-}
-.europe:hover {
-  fill: #d56cff;
-}
-.north:hover {
-  fill: #132bff;
-}
-.south:hover {
-  fill: #47ce70;
-}
-.middle:hover {
-  fill: #ffc400;
-} */
 
 .tag-map {
   margin: 2em;
@@ -156,7 +134,6 @@ a {
 .MuiTextField-root,
 .MuiInputLabel-root {
   font-family: 'Biotif-Book' !important;
-
 }
 
 .tag-map {
