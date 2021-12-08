@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -61,7 +61,7 @@ const LogIn = () => {
               <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
                 Log In
               </Button>
-              <Link href="/signup" variant="body2">
+              <Link component={RouterLink} to="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Box>
