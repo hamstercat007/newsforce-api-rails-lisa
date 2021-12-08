@@ -7,8 +7,11 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Navigation from './Navigation';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
 
 const LogIn = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -17,17 +20,28 @@ const LogIn = () => {
       email: data.get('email'),
       password: data.get('password'),
     });
+    navigate("/");
   };
 
   return (
     <>
       <Navigation />
       <Container component="main" maxWidth="xs">
-        <Card
+      <Card 
+        sx={{
+          maxWidth: 400 ,
+          margin: '1em',
+          textAlign: 'center',
+        }}
+      >
+        <Box
           sx={{
-            maxWidth: 400,
-            margin: '1em',
-            textAlign: 'center',
+            marginTop: 4,
+            marginBottom: 4,
+            mx: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
           <Typography component="h1" variant="h5">
@@ -38,11 +52,11 @@ const LogIn = () => {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
               />
             <TextField
               margin="normal"
@@ -62,12 +76,13 @@ const LogIn = () => {
             >
               Log In
             </Button>
-            <Link to="/signup" variant="body2">
+            <Link component={RouterLink} to="/signup" variant="body2">
               {"Don't have an account? Sign Up"}
             </Link>
           </Box>
-        </Card>
-      </Container>
+        </Box>
+      </Card>
+    </Container>
     </>
   );
 };
