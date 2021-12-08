@@ -47,6 +47,7 @@ a {
 .nav-title {
   font-family: "Biotif-Black" !important;
   font-size: 0.8em;
+  margin-right: 1em;
 }
 
 .MuiCardHeader-title,
@@ -82,6 +83,7 @@ a {
   flex-direction: column;
 }
 
+
 .spinner {
   animation: spin infinite 2s linear;
 
@@ -96,4 +98,62 @@ a {
   to {
     transform: rotate(360deg);
   }
+
+.MuiButton-outlinedSizeSmall {
+  font-family: 'Biotif-Bold' !important;
+  font-size: 0.8em !important;
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
+}
+
+/* .africa:hover {
+  fill: #4c7f3f;
+}
+.asia:hover {
+  fill: #ff0000;
+}
+.europe:hover {
+  fill: #d56cff;
+}
+.north:hover {
+  fill: #132bff;
+}
+.south:hover {
+  fill: #47ce70;
+}
+.middle:hover {
+  fill: #ffc400;
+} */
+
+.tag-map {
+  margin: 2em;
+  width: 50%;
+}
+
+.MuiCollapse-wrapper {
+  max-height: 80vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.flex-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.MuiFormControlLabel-label {
+  font-family: 'Biotif-Bold' !important;
+}
+
+.MuiTextField-root,
+.MuiInputLabel-root {
+  font-family: 'Biotif-Book' !important;
+
 }

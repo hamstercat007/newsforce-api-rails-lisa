@@ -1,3 +1,4 @@
+
 import React from "react";
 import NewsCard from "./NewsCard";
 import Grid from "@mui/material/Grid";
@@ -12,10 +13,38 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(3);
+
   const [loading, setLoading] = useState(false);
-  const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+  const [filteredResults, setFilteredResults] = useState([]);
+
+  const [toggleList, setToggleList] = useState([
+    'BBC News',
+    'Al Jazeera English',
+    'Associated Press',
+    'asia',
+    'europe',
+    'north-america',
+    'middle-east',
+    'south-america',
+    'africa',
+  ]);
+
+  const handleToggle = (inputValue) => {
+    const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
+    setToggleList(filt);
+    const filteredData = data
+      .filter((item) => {
+        return filt.includes(item.publisher);
+      })
+      .filter((item) => filt.some((r) => item.tag_list.includes(r)));
+    console.log(filteredData);
+    setFilteredResults(filteredData);
+  };
+
   const getData = () => {
     fetch(`https://newsforce-api.herokuapp.com/?page=${page}`, {
+
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -37,6 +66,7 @@ const Home = () => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -102,6 +132,7 @@ const Home = () => {
             ))}
           </Grid>
         </InfiniteScroll>
+
       )}
     </div>
   );
