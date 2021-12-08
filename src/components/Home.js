@@ -4,14 +4,11 @@ import Grid from '@mui/material/Grid';
 import { useState, useEffect } from 'react';
 import SkeletonGrid from './SkeletonGrid';
 import Collapse from '@mui/material/Collapse';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Divider from '@mui/material/Divider';
 import TagCloud from './TagCloud';
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faReact } from '@fortawesome/free-brands-svg-icons';
 import { blue } from '@mui/material/colors';
 
 const Home = ({ expanded }) => {
