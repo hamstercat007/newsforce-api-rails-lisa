@@ -1,18 +1,18 @@
-import React from 'react';
-import NewsCard from './NewsCard';
-import Grid from '@mui/material/Grid';
-import { useState, useEffect } from 'react';
-import SkeletonCard from './SkeletonCard';
+import React from "react";
+import NewsCard from "./NewsCard";
+import Grid from "@mui/material/Grid";
+import { useState, useEffect } from "react";
+import SkeletonCard from "./SkeletonCard";
 
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const getData = () => {
-    fetch('https://newsforce-api.herokuapp.com/index', {
+    fetch(`https://newsforce-api.herokuapp.com/?page=${page}`, {
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
     })
       .then(function (response) {

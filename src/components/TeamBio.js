@@ -17,7 +17,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
-
 export default function TeamBio({
   name,
   image_url,
@@ -27,7 +26,6 @@ export default function TeamBio({
   strength2,
   strength3,
 }) {
-git
   return (
     <Card sx={{ minWidth: 225 }} className="enlargeOnHover" raised="true">
       <CardHeader title={name} style={{ fontSize: "2em" }} align="center" />
