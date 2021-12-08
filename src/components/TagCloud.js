@@ -8,33 +8,29 @@ export default function TagCloud({ handleToggle }) {
       <TagMap />
       <div className="flex-col">
         <FormControlLabel
-          control={<Switch defaultChecked id="africaSwitch" value="africa" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+          control={<Switch defaultChecked value="africa" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="Africa"
         />
         <FormControlLabel
-          control={<Switch defaultChecked id="middleEastSwitch" value="middle-east" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+          control={<Switch defaultChecked value="middle-east" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="Middle East"
         />
         <FormControlLabel
-          control={<Switch defaultChecked id="asiaSwitch" value="asia" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+          control={<Switch defaultChecked value="asia" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="Asia"
         />
       </div>
       <div className="flex-col">
         <FormControlLabel
-          control={<Switch defaultChecked id="europeSwitch" value="europe" onChange={(al_event) => handleToggle(al_event.target.value)} />}
+          control={<Switch defaultChecked value="europe" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="Europe"
         />
         <FormControlLabel
-          control={
-            <Switch defaultChecked id="northAmericaSwitch" value="north-america" onChange={(al_event) => handleToggle(al_event.target.value)} />
-          }
+          control={<Switch defaultChecked value="north-america" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="North America"
         />
         <FormControlLabel
-          control={
-            <Switch defaultChecked id="southAmericaSwitch" value="south-america" onChange={(al_event) => handleToggle(al_event.target.value)} />
-          }
+          control={<Switch defaultChecked value="south-america" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="South America"
         />
       </div>
