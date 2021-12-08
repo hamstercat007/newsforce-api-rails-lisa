@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
 import SkeletonCard from "./SkeletonCard";
 import InfiniteScroll from "react-infinite-scroll-component";
+import react from "../images/react-logo.png";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const getData = () => {
-    fetch(`http://localhost:3000/index?page=${page}`, {
+    fetch(`https://lazyloadingrailsapi.herokuapp.com/index?page=${page}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -33,7 +34,7 @@ const Home = () => {
     getData();
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -58,7 +59,9 @@ const Home = () => {
           loader={<h4>Loading...</h4>}
           endMessage={
             <p style={{ textAlign: "center" }}>
+              <img src={react} style={{ height: "50px" }} />
               <b>Enter the React Hall of Fame</b>
+              <img src={react} style={{ height: "50px" }} />
             </p>
           }
         >
