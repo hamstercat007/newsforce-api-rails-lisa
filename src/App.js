@@ -5,10 +5,12 @@ import AboutUs from './components/AboutUs';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import './App.css';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <Router>
+      <Navigation />
       <>
         <Routes>
           <Route key={1} path="/" element={<Home />} />

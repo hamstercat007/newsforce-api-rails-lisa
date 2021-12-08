@@ -2,8 +2,13 @@ import React from 'react';
 import NewsCard from './NewsCard';
 import Grid from '@mui/material/Grid';
 import { useState, useEffect } from 'react';
-import Navigation from './Navigation';
 import SkeletonGrid from './SkeletonGrid';
+import Collapse from '@mui/material/Collapse';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Divider from '@mui/material/Divider';
+import TagCloud from './TagCloud';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -23,6 +28,23 @@ const Home = () => {
     'south-america',
     'africa',
   ]);
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const ExpandMore = styled((props) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+  })(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  }));
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   const handleToggle = (inputValue) => {
     updateMapFill(inputValue);
@@ -54,7 +76,7 @@ const Home = () => {
   const updateMapFill = (item) => {
     let continent = document.getElementsByClassName(item);
     [].forEach.call(continent, function (cont) {
-      cont.style.fill === 'rgb(235, 235, 235)' ? (cont.style.fill = 'rgb(0, 0, 0)') : (cont.style.fill = 'rgb(235, 235, 235)');
+      cont.style.fill === 'rgb(195, 195, 195)' ? (cont.style.fill = 'rgb(0, 0, 0)') : (cont.style.fill = 'rgb(195, 195, 195)');
     });
   };
 
@@ -72,7 +94,15 @@ const Home = () => {
       {loading && <SkeletonGrid />}
       {!loading && (
         <>
-          <Navigation handleToggle={handleToggle} />
+          <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
+            <ExpandMoreIcon />
+          </ExpandMore>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Divider light />
+            <div className="flex-row">
+              <TagCloud handleToggle={handleToggle} />
+            </div>
+          </Collapse>
           <Grid container spacing={0}>
             {toggleList.length < 9
               ? filteredResults &&
