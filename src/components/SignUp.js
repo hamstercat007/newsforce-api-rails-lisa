@@ -7,9 +7,11 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Navigation from './Navigation';
-import { Navigate } from 'react-router-dom';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -26,23 +28,32 @@ const SignUp = () => {
     }).then(response => response.json())
     .then(data => {
       console.log('Success:', data);
-      <Navigate to="/" replace />
     })
     .catch((error) => {
       console.error('Error:', error);
     });
-    
+    navigate("/");
   };
 
   return (
     <>
       <Navigation />
       <Container component="main" maxWidth="xs">
-        <Card
+      <Card 
+        sx={{
+          maxWidth: 400 ,
+          margin: '1em',
+          textAlign: 'center',
+        }}
+      >
+        <Box
           sx={{
-            maxWidth: 400,
-            margin: '1em',
-            textAlign: 'center',
+            marginTop: 4,
+            marginBottom: 4,
+            mx: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
           <Typography component="h1" variant="h5">
@@ -84,12 +95,13 @@ const SignUp = () => {
             >
               Sign Up
             </Button>
-            <Link to="/login" variant="body2">
-                {'Already have an account? Log in'}
+            <Link component={RouterLink} to="/login" variant="body2">
+              {"Already have an account? Log in"}
             </Link>
           </Box>
-        </Card>
-      </Container>        
+        </Box>
+      </Card>
+    </Container>
     </>
   );
 };
