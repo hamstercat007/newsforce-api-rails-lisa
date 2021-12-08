@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import SkeletonCard from "./SkeletonCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import react from "../images/react-logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -62,6 +63,11 @@ const Home = () => {
               <img src={react} style={{ height: "50px" }} />
               <b>Enter the React Hall of Fame</b>
               <img src={react} style={{ height: "50px" }} />
+              <FontAwesomeIcon
+                icon={faReact}
+                style={{ color: blue[500] }}
+                className="spinner"
+              ></FontAwesomeIcon>
             </p>
           }
         >
