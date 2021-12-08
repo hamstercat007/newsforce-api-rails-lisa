@@ -24,16 +24,19 @@ const LogIn = () => {
   };
 
   return (
+
     <>
       <Navigation />
       <Container component="main" maxWidth="xs">
       <Card 
         sx={{
           maxWidth: 400 ,
+
           margin: '1em',
           textAlign: 'center',
         }}
       >
+
         <Box
           sx={{
             marginTop: 4,

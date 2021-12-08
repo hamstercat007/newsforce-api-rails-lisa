@@ -1,15 +1,22 @@
 
-import React from "react";
-import NewsCard from "./NewsCard";
-import Grid from "@mui/material/Grid";
-import { useState, useEffect } from "react";
-import SkeletonCard from "./SkeletonCard";
+import React from 'react';
+import NewsCard from './NewsCard';
+import Grid from '@mui/material/Grid';
+import { useState, useEffect } from 'react';
+import SkeletonGrid from './SkeletonGrid';
+import Collapse from '@mui/material/Collapse';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Divider from '@mui/material/Divider';
+import TagCloud from './TagCloud';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReact, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { blue } from "@mui/material/colors";
 
-const Home = () => {
+
+const Home = ({ expanded }) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(3);
@@ -31,6 +38,7 @@ const Home = () => {
   ]);
 
   const handleToggle = (inputValue) => {
+    updateMapFill(inputValue);
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
     setToggleList(filt);
     const filteredData = data
@@ -38,7 +46,6 @@ const Home = () => {
         return filt.includes(item.publisher);
       })
       .filter((item) => filt.some((r) => item.tag_list.includes(r)));
-    console.log(filteredData);
     setFilteredResults(filteredData);
   };
 
@@ -60,6 +67,13 @@ const Home = () => {
       });
   };
 
+  const updateMapFill = (item) => {
+    let continent = document.getElementsByClassName(item);
+    [].forEach.call(continent, function (cont) {
+      cont.style.fill === 'rgb(195, 195, 195)' ? (cont.style.fill = 'rgb(0, 0, 0)') : (cont.style.fill = 'rgb(195, 195, 195)');
+    });
+  };
+
   useEffect(() => {
     setLoading(true);
     getData();
@@ -72,6 +86,7 @@ const Home = () => {
 
   return (
     <div className="App">
+
       {loading && (
         <Grid container spacing={0}>
           {skelArr.map((skel) => {
@@ -84,6 +99,12 @@ const Home = () => {
         </Grid>
       )}
       {!loading && data && data.length > 0 && (
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Divider light />
+            <div className="flex-row">
+              <TagCloud handleToggle={handleToggle} />
+            </div>
+          </Collapse>
         <InfiniteScroll
           dataLength={data.length} //This is important field to render the next data
           next={getData}
@@ -114,6 +135,7 @@ const Home = () => {
             </div>
           }
         >
+
           <Grid container spacing={0}>
             {data.map((item) => (
               <Grid item key={item.id} xs={12} sm={6} md={5}>
