@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
 import SkeletonCard from "./SkeletonCard";
 import InfiniteScroll from "react-infinite-scroll-component";
-import react from "../images/react-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReact, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { blue } from "@mui/material/colors";
@@ -16,7 +15,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const getData = () => {
-    fetch(`https://lazyloadingrailsapi.herokuapp.com/index?page=${page}`, {
+    fetch(`https://newsforce-api.herokuapp.com/?page=${page}`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -61,15 +60,19 @@ const Home = () => {
           hasMore={page <= lastPage}
           loader={<h4>Loading...</h4>}
           endMessage={
-            <p style={{ textAlign: "center", alignItems: "center" }}>
-              {/* <img src={react} style={{ height: "50px" }} /> */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <FontAwesomeIcon
                 icon={faReact}
                 style={{ color: blue[500], marginRight: "0.3em" }}
                 className="spinner"
               ></FontAwesomeIcon>
-              <h1>Enter the React Hall of Fame</h1>
-              {/* <img src={react} style={{ height: "50px" }} /> */}
+              <h2>Enter the React Hall of Fame</h2>
               <FontAwesomeIcon
                 icon={faReact}
                 style={{
@@ -78,7 +81,7 @@ const Home = () => {
                 }}
                 className="spinner"
               ></FontAwesomeIcon>
-            </p>
+            </div>
           }
         >
           <Grid container spacing={0}>
