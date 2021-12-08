@@ -25,6 +25,7 @@ const Home = () => {
   ]);
 
   const handleToggle = (inputValue) => {
+    updateMapFill(inputValue);
     const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
     setToggleList(filt);
     const filteredData = data
@@ -32,7 +33,6 @@ const Home = () => {
         return filt.includes(item.publisher);
       })
       .filter((item) => filt.some((r) => item.tag_list.includes(r)));
-    console.log(filteredData);
     setFilteredResults(filteredData);
   };
 
@@ -49,6 +49,11 @@ const Home = () => {
       .then(function (myJson) {
         setData(myJson);
       });
+  };
+
+  const updateMapFill = (item) => {
+    const continent = document.querySelector(`.${item}`);
+    continent.style.fill === 'rgb(235, 235, 235)' ? (continent.style.fill = 'rgb(0, 0, 0)') : (continent.style.fill = 'rgb(235, 235, 235)');
   };
 
   useEffect(() => {
