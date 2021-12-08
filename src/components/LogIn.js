@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Card from "@mui/material/Card";
+import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import Navigation from './Navigation';
 
 const LogIn = () => {
   const handleSubmit = (e) => {
@@ -19,22 +20,14 @@ const LogIn = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Card 
-        sx={{
-          maxWidth: 400 ,
-          margin: '1em',
-          textAlign: 'center',
-        }}
-      >
-        <Box
+    <>
+      <Navigation />
+      <Container component="main" maxWidth="xs">
+        <Card
           sx={{
-            marginTop: 4,
-            marginBottom: 4,
-            mx: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            maxWidth: 400,
+            margin: '1em',
+            textAlign: 'center',
           }}
         >
           <Typography component="h1" variant="h5">
@@ -45,11 +38,11 @@ const LogIn = () => {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
               />
             <TextField
               margin="normal"
@@ -73,10 +66,10 @@ const LogIn = () => {
               {"Don't have an account? Sign Up"}
             </Link>
           </Box>
-        </Box>
-      </Card>
-    </Container>
-  )
-}
+        </Card>
+      </Container>
+    </>
+  );
+};
 
-export default LogIn
+export default LogIn;

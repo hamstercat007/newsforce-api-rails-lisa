@@ -2,14 +2,42 @@ import React from 'react';
 import NewsCard from './NewsCard';
 import Grid from '@mui/material/Grid';
 import { useState, useEffect } from 'react';
-import SkeletonCard from './SkeletonCard';
+import Navigation from './Navigation';
+import SkeletonGrid from './SkeletonGrid';
 
 const Home = () => {
   const [data, setData] = useState([]);
+
   const [loading, setLoading] = useState(false);
-  const skelArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+  const [filteredResults, setFilteredResults] = useState([]);
+
+  const [toggleList, setToggleList] = useState([
+    'BBC News',
+    'Al Jazeera English',
+    'Associated Press',
+    'asia',
+    'europe',
+    'north-america',
+    'middle-east',
+    'south-america',
+    'africa',
+  ]);
+
+  const handleToggle = (inputValue) => {
+    const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
+    setToggleList(filt);
+    const filteredData = data
+      .filter((item) => {
+        return filt.includes(item.publisher);
+      })
+      .filter((item) => filt.some((r) => item.tag_list.includes(r)));
+    console.log(filteredData);
+    setFilteredResults(filteredData);
+  };
+
   const getData = () => {
-    fetch('https://newsforce-api.herokuapp.com/index', {
+    fetch('sample_data.json', {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -28,43 +56,54 @@ const Home = () => {
     getData();
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="App">
-      {loading && (
-        <Grid container spacing={0}>
-          {skelArr.map((skel) => {
-            return (
-              <Grid item xs={12} sm={6} md={5}>
-                <SkeletonCard skel={skel} />
-              </Grid>
-            );
-          })}
-        </Grid>
-      )}
+      {loading && <SkeletonGrid />}
       {!loading && (
-        <Grid container spacing={0}>
-          {data &&
-            data.length > 0 &&
-            data.map((item) => (
-              <Grid item key={item.id} xs={12} sm={6} md={5}>
-                <NewsCard
-                  key={item.id}
-                  publisher={item.publisher}
-                  publish_date={item.publish_date}
-                  image_url={item.image_url}
-                  headline={item.headline}
-                  sub_headline={item.sub_headline}
-                  article_body={item.article_body}
-                  src_url={item.source_url}
-                  tag_list={item.tag_list}
-                />
-              </Grid>
-            ))}
-        </Grid>
+        <>
+          <Navigation handleToggle={handleToggle} />
+          <Grid container spacing={0}>
+            {toggleList.length < 9
+              ? filteredResults &&
+                filteredResults.length > 0 &&
+                filteredResults.map((item) => (
+                  <Grid item key={item.id} xs={12} sm={6} md={5}>
+                    <NewsCard
+                      key={item.id}
+                      publisher={item.publisher}
+                      publish_date={item.publish_date}
+                      image_url={item.image_url}
+                      headline={item.headline}
+                      sub_headline={item.sub_headline}
+                      article_body={item.article_body}
+                      src_url={item.source_url}
+                      tag_list={item.tag_list}
+                    />
+                  </Grid>
+                ))
+              : data &&
+                data.length > 0 &&
+                data.map((item) => (
+                  <Grid item key={item.id} xs={12} sm={6} md={5}>
+                    <NewsCard
+                      key={item.id}
+                      publisher={item.publisher}
+                      publish_date={item.publish_date}
+                      image_url={item.image_url}
+                      headline={item.headline}
+                      sub_headline={item.sub_headline}
+                      article_body={item.article_body}
+                      src_url={item.source_url}
+                      tag_list={item.tag_list}
+                    />
+                  </Grid>
+                ))}
+          </Grid>
+        </>
       )}
     </div>
   );

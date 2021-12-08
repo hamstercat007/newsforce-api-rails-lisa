@@ -8,10 +8,9 @@ import IconButton from '@mui/material/IconButton';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
-
-import jazeeraLogo from '../images/al-jazeera-logo.png';
-import bbcLogo from '../images/bbc-logo.png';
-import APlogo from '../images/associatedpress.png';
+import jazeeraLogo from '../vectors/jazeera.svg';
+import bbcLogo from '../vectors/bbcnews.svg';
+import APlogo from '../vectors/associatedpress.svg';
 import formatTimeAgo from './TimeFormat';
 import Link from '@material-ui/core/Link';
 import TagButtons from './TagButtons';
@@ -30,7 +29,7 @@ const getIcon = (publisher) => {
 const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url, tag_list }) => {
   const style = {
     width: '100%',
-    maxWidth: 500,
+    maxWidth: 400,
     height: 350,
     bgcolor: 'background.paper',
     margin: '1em',
@@ -39,7 +38,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
   return (
     <Card style={style}>
       <CardHeader
-        avatar={<Avatar src={getIcon(publisher)} aria-label="recipe" variant="square" sx={{ height: 'auto' }}></Avatar>}
+        avatar={<Avatar src={getIcon(publisher)} aria-label="publisher_logo" variant="square" sx={{ height: 'auto', width: '50px' }}></Avatar>}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
