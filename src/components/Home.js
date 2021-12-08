@@ -10,7 +10,7 @@ import TagCloud from './TagCloud';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 
-const Home = () => {
+const Home = ({ expanded }) => {
   const [data, setData] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -28,23 +28,6 @@ const Home = () => {
     'south-america',
     'africa',
   ]);
-
-  const [expanded, setExpanded] = React.useState(false);
-
-  const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-  })(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  }));
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   const handleToggle = (inputValue) => {
     updateMapFill(inputValue);
@@ -94,12 +77,9 @@ const Home = () => {
       {loading && <SkeletonGrid />}
       {!loading && (
         <>
-          <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
-            <ExpandMoreIcon />
-          </ExpandMore>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <Divider light />
-            <div className="flex-row-toggles">
+            <div className="flex-row">
               <TagCloud handleToggle={handleToggle} />
             </div>
           </Collapse>
