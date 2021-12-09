@@ -98,7 +98,7 @@ const AboutUs = () => {
             github_url="https://github.com/hamstercat007"
             strength1="Creative"
             strength2="Writer"
-            strength3=""
+            strength3="Technology Explorer"
           ></TeamBio>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
@@ -109,7 +109,7 @@ const AboutUs = () => {
             github_url="https://github.com/t-kellett"
             strength1="Managerial oversight"
             strength2="Technical architectural understanding"
-            strength3=""
+            strength3="Steady"
           ></TeamBio>
         </Grid>
       </Grid>
