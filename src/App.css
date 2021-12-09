@@ -37,6 +37,10 @@ a {
   font-family: 'Biotif-Book';
 }
 
+body {
+  margin: 0;
+}
+
 .MuiCardHeader-subheader {
   font-family: 'Biotif-Book' !important;
 }
@@ -128,7 +132,8 @@ a {
   justify-content: space-around;
 }
 
-.MuiFormControlLabel-label {
+.MuiFormControlLabel-label,
+.MuiTooltip-tooltipPlacementRight {
   font-family: 'Biotif-Bold' !important;
 }
 

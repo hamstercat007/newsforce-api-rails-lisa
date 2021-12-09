@@ -13,6 +13,7 @@ import formatTimeAgo from './TimeFormat';
 import Link from '@material-ui/core/Link';
 import TagButtons from './TagButtons';
 import truncate from './helpers/truncate';
+import Tooltip from '@mui/material/Tooltip';
 
 const getIcon = (publisher) => {
   if (publisher === 'Associated Press') {
@@ -28,7 +29,7 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
   const style = {
     width: '100%',
     maxWidth: 500,
-    height: 350,
+    height: 340,
     bgcolor: 'background.paper',
     margin: '1em',
   };
@@ -42,11 +43,13 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
       />
       <CardMedia component="img" height="194" src={image_url} alt="Image" />
       <CardActions disableSpacing>
-        <Link href={src_url} target="_blank">
-          <IconButton aria-label="source article">
-            <NewspaperIcon style={{ height: '1.2em', width: '1.2em' }} />
-          </IconButton>
-        </Link>
+        <Tooltip title={'View on ' + publisher} placement="right">
+          <Link href={src_url} target="_blank">
+            <IconButton aria-label="source article">
+              <NewspaperIcon style={{ height: '1.2em', width: '1.2em' }} />
+            </IconButton>
+          </Link>
+        </Tooltip>
         <TagButtons tag_list={tag_list} />
       </CardActions>
     </Card>
