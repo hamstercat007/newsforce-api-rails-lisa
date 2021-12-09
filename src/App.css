@@ -175,3 +175,27 @@ svg.tag-map {
 a {
   cursor: pointer;
 }
+
+.africaContainer:hover > * {
+  fill: red;
+}
+
+.asiaContainer:hover > * {
+  fill: red;
+}
+
+.europeContainer:hover > * {
+  fill: red;
+}
+
+.middleEastContainer:hover > * {
+  fill: red;
+}
+
+.northAmContainer:hover > * {
+  fill: red;
+}
+
+.southAmContainer:hover > * {
+  fill: red;
+}

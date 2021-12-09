@@ -2,7 +2,7 @@ export default function TagMap({ handleToggle }) {
   return (
     <svg version="1.1" className="tag-map" height="auto" width="100%" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 783.1 400.6">
       <g id="svg_1">
-        <a onClick={() => handleToggle('africa')}>
+        <a onClick={() => handleToggle('africa')} className="africaContainer">
           <path
             className="africa"
             fill="#000000"
@@ -33,8 +33,7 @@ export default function TagMap({ handleToggle }) {
 		c-2-0.5-3.6,1.8-4.3-1.4c-0.7-3.2-1.1-5-2.5-7.2c-1.4-2.3-2.3-3.2-4.3-6.1c-2-2.9-1.8-1.6-3.6-3.8c-1.8-2.3-2.3-1.6-3.4-4.5
 		s-2-1.8-3.4-5.9c-1.4-4.1-2.3-4.5-2.9-6.8c-0.7-2.2-1.6-2.9-2-5c-0.4-2-5.6-12.4-6.3-13.1c-0.7-0.7-1.8-4.3-1.6-3.6"
           />
-        </a>
-        <a onClick={() => handleToggle('africa')}>
+
           <path
             className="africa"
             fill="#000000"
@@ -54,8 +53,6 @@ export default function TagMap({ handleToggle }) {
 		c1.1,0.7,3.4,0.2,4,1.1c0.7,0.9-4.3,3.2,4.3-0.7c8.6-3.8,9.5-4.7,10.6-6.1s2.5-2.7,3.4-3.6s0.2-0.7,2.9-2.7s2.7-1.1,5.2-5
 		c2.5-3.8,4.3-5.2,4.7-5.9c0.4-0.7,1.3-0.9,1.6-3.6c0.2-2.7,2-5.2,2-6.1s0.7-2.2,0.5-3.8C790.4,308.7,791.5,306.5,790.2,304.2z"
           />
-        </a>
-        <a onClick={() => handleToggle('africa')}>
           <path
             className="africa"
             fill="#000000"
@@ -65,7 +62,8 @@ export default function TagMap({ handleToggle }) {
 	c0.2-1.4,0.4-4.5,0.9-5.4s0.7-1.8,0.7-2.7c0-0.9,0-2.7,0-2.7l-1.6-5C509.7,270.5,507.3,274.1,507.3,274.1z"
           />
         </a>
-        <a onClick={() => handleToggle('europe')}>
+
+        <a onClick={() => handleToggle('europe')} className="europeContainer">
           <path
             className="europe"
             fill="#000000"
@@ -99,7 +97,7 @@ export default function TagMap({ handleToggle }) {
 		c0.6,0.5,2.9-0.6,3.5,0.3c0.1,0,0.3,0.1,0.4,0.1C470,118.4,470,118.4,470.1,118.3z"
           />
         </a>
-        <a onClick={() => handleToggle('asia')}>
+        <a onClick={() => handleToggle('asia')} className="asiaContainer">
           <path
             className="asia"
             fill="#000000"
@@ -119,8 +117,6 @@ export default function TagMap({ handleToggle }) {
 	c1.1,0.7,3.4,0.2,4,1.1c0.7,0.9-4.3,3.2,4.3-0.7c8.6-3.8,9.5-4.7,10.6-6.1s2.5-2.7,3.4-3.6s0.2-0.7,2.9-2.7s2.7-1.1,5.2-5
 	c2.5-3.8,4.3-5.2,4.7-5.9c0.4-0.7,1.3-0.9,1.6-3.6c0.2-2.7,2-5.2,2-6.1s0.7-2.2,0.5-3.8C790.4,308.7,791.5,306.5,790.2,304.2z"
           />
-        </a>
-        <a onClick={() => handleToggle('asia')}>
           <path
             className="asia"
             fill="#000000"
@@ -130,8 +126,6 @@ export default function TagMap({ handleToggle }) {
 	s-0.9-0.9,0.5-2.3c1.4-1.4,2.9-1.8,3.2-3.4c0.2-1.6-0.5-1.6,0.2-2.5s2.2-0.7,1.8-1.6c-0.5-0.9,0.4-0.7-0.5-2.5s-2-2.5-1.1-4.7
 	s1.8-2.7,1.6-4.1C704.6,214.4,706,214,704.4,212.4z"
           />
-        </a>
-        <a onClick={() => handleToggle('asia')}>
           <path
             className="asia"
             fill="#000000"
@@ -143,8 +137,6 @@ export default function TagMap({ handleToggle }) {
 	c1.8-0.7,1.6,0.7,2.7,1.6c1.1,0.9,3.4,1.8,5.4,1.1c2-0.7,1.4,1.8,2.9,0.2c1.6-1.6,2.7-2.9,3.8-2.9s2,0.4,2.7,1.8
 	c0.7,1.3,3.6,2.5,4.9,4.1c1.4,1.6,3.4,2,3.8,2.7c0.4,0.7,4.7,0.7,6.1,0.7C796.9,262.6,795.8,261.2,794.2,260.1z"
           />
-        </a>
-        <a onClick={() => handleToggle('asia')}>
           <path
             className="asia"
             fill="#000000"
@@ -153,8 +145,6 @@ export default function TagMap({ handleToggle }) {
 	c1.6,1.6,1.8,2.9,2.7,3.4s2.7,4.5,3.4,5.9c0.7,1.3,2,2.7,2.9,4.1c0.9,1.4,2.7,4.3,4.3,7s2.7,3.8,3.6,5.2c0.9,1.4,3.6,2.7,3.6,2.7
 	s1.1-0.2,2.5-1.8c1.4-1.6,0.9-3.4,0.9-4.1C670.2,241.9,668.6,239.8,668.4,239.2z"
           />
-        </a>
-        <a onClick={() => handleToggle('asia')}>
           <path
             className="asia"
             fill="#000000"
@@ -202,7 +192,7 @@ export default function TagMap({ handleToggle }) {
 		c1.1-0.2,8.8,1.6,10.4,2.5C776.4,34.4,782,34.6,781.3,34.2z"
           />
         </a>
-        <a onClick={() => handleToggle('middle-east')} target="blank">
+        <a onClick={() => handleToggle('middle-east')} className="middleEastContainer">
           <path
             className="middle-east"
             fill="#000000"
@@ -218,7 +208,7 @@ export default function TagMap({ handleToggle }) {
         </a>
         <path fill="#000000" className="st0" d="M764.5,42.5c0,0,0.1,0,0.2,0C765.9,41.1,764.5,42.5,764.5,42.5z" />
       </g>
-      <a onClick={() => handleToggle('south-america')}>
+      <a onClick={() => handleToggle('south-america')} className="southAmContainer">
         <path
           className="south-america"
           fill="#000000"
@@ -245,7 +235,7 @@ export default function TagMap({ handleToggle }) {
 	c-0.2,2.3,0.2,2.5,0.7,3.8c0.4,1.4,1.6,0.7,0.4,1.4C208.3,389.5,205,388.9,205,388.9z"
         />
       </a>
-      <a onClick={() => handleToggle('north-america')}>
+      <a onClick={() => handleToggle('north-america')} className="northAmContainer">
         <path
           className="north-america"
           fill="#000000"
@@ -289,8 +279,7 @@ export default function TagMap({ handleToggle }) {
 	c1.3,0,1.3,0,2.3,0.2c0.9,0.2,1.3-0.7,2.2,0.5c0.9,1.1,1.6,1.8,2.2,2.9c0.6,1.1,2.3,1.1,2.5,2.9c0.2,1.8,0.7,1.6,0.7,3.2
 	c0,1.6,0.9,2.3,1.6,2.7s3.2,2.7,3.2,2.7l3.4,0.7l2.7,2L146.9,205.6z"
         />
-      </a>
-      <a onClick={() => handleToggle('north-america')}>
+
         <path
           className="north-america"
           fill="#000000"
@@ -304,8 +293,7 @@ export default function TagMap({ handleToggle }) {
 	s-0.3,4.1,0,6.1s0.7,5.4,1.7,6.8c1,1.4,2,3.7,3.7,5.4s2.7,1.4,4.7,3c2,1.7,6.1-5.1,7.4-6.8s0.7-2,2.7-4.7s3.7-2.4,10.8-4.4
 	c7.1-2,3.4-3,4.7-3.7c1.4-0.7,5.7-2.4,7.8-2.4c2,0,5.4-1,10.1-2S326.7,23.5,328.8,21.9z"
         />
-      </a>
-      <a onClick={() => handleToggle('north-america')}>
+
         <path
           className="north-america"
           fill="#000000"
@@ -314,8 +302,7 @@ export default function TagMap({ handleToggle }) {
 	s-3.4-5.1-2-5.1s4.1,1.7,4.1,1.7l1.4-2.7l-1.4-4.4l-4.4-4.4c0,0,3.7-3.4-1.4-4.1c-5.1-0.7-4.7-0.7-7.4-2.4c-2.7-1.7-3-2.4-8.1-1.4
 	s-6.8,1.7-6.8,1.7L211.6,11.7z"
         />
-      </a>
-      <a onClick={() => handleToggle('north-america')}>
+
         <path
           className="north-america"
           fill="#00000"
