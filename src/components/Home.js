@@ -125,7 +125,7 @@ const Home = ({ expanded }) => {
             <Grid container spacing={0}>
               {toggleList.length < 9
                 ? filteredResults.map((item) => (
-                    <Grid item key={item.id} xs={12} sm={6} md={5}>
+                    <Grid item key={item.id} xs={12} sm={12} md={5} wrap={'wrap'}>
                       <NewsCard
                         key={item.id}
                         publisher={item.publisher}
@@ -140,7 +140,7 @@ const Home = ({ expanded }) => {
                     </Grid>
                   ))
                 : data.map((item) => (
-                    <Grid item key={item.id} xs={12} sm={6} md={5}>
+                    <Grid item key={item.id} xs={12} sm={12} md={5}>
                       <NewsCard
                         key={item.id}
                         publisher={item.publisher}
