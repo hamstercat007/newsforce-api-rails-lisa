@@ -5,8 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import jazeeraLogo from '../vectors/jazeera.svg';
 import bbcLogo from '../vectors/bbcnews.svg';
@@ -15,6 +13,7 @@ import formatTimeAgo from './TimeFormat';
 import Link from '@material-ui/core/Link';
 import TagButtons from './TagButtons';
 import truncate from './helpers/truncate';
+import Tooltip from '@mui/material/Tooltip';
 
 const getIcon = (publisher) => {
   if (publisher === 'Associated Press') {
@@ -29,8 +28,8 @@ const getIcon = (publisher) => {
 const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, src_url, tag_list }) => {
   const style = {
     width: '100%',
-    maxWidth: 400,
-    height: 350,
+    maxWidth: 500,
+    height: 340,
     bgcolor: 'background.paper',
     margin: '1em',
   };
@@ -39,26 +38,18 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
     <Card style={style}>
       <CardHeader
         avatar={<Avatar src={getIcon(publisher)} aria-label="publisher_logo" variant="square" sx={{ height: 'auto', width: '50px' }}></Avatar>}
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title={truncate(sub_headline)}
         subheader={formatTimeAgo(publish_date)}
       />
       <CardMedia component="img" height="194" src={image_url} alt="Image" />
       <CardActions disableSpacing>
-        <div className="card-buttons">
-          <IconButton aria-label="add to favorites">
-            <BookmarkAddIcon />
-          </IconButton>
+        <Tooltip title={'View on ' + publisher} placement="right">
           <Link href={src_url} target="_blank">
             <IconButton aria-label="source article">
-              <NewspaperIcon />
+              <NewspaperIcon style={{ height: '1.2em', width: '1.2em' }} />
             </IconButton>
           </Link>
-        </div>
+        </Tooltip>
         <TagButtons tag_list={tag_list} />
       </CardActions>
     </Card>

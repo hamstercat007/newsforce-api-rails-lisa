@@ -3,24 +3,17 @@ import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
-import Typography from '@mui/material/Typography';
 import { useNavigate, Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import newsforceLogo from '../vectors/newsforceLogo.svg';
+import Collapse from '@mui/material/Collapse';
+import Divider from '@mui/material/Divider';
+import TagCloud from './TagCloud';
 
-const Navigation = ({ expanded, setExpanded }) => {
+const Navigation = ({ expanded, setExpanded, handleToggle }) => {
   const navigate = useNavigate();
-
-  function handleAboutClick() {
-    navigate('/about');
-  }
-  function handleSignUpClick() {
-    navigate('/signup');
-  }
-  function handleLogInClick() {
-    navigate('/login');
-  }
 
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -39,26 +32,24 @@ const Navigation = ({ expanded, setExpanded }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
+      <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black', justifyContent: 'center' }}>
         <Toolbar>
-          <Typography variant="h3" component="div">
-            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} className="nav-title">
-              NEWSFORCE
-            </Link>
-          </Typography>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} className="nav-title">
+            <img src={newsforceLogo} width="250" height="auto" alt="newsforce-logo" />
+          </Link>
           <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
-            <ExpandMoreIcon />
+            <FilterListIcon />
           </ExpandMore>
-          <Button color="inherit" onClick={handleAboutClick}>
+          <Button color="inherit" onClick={() => navigate('/about')}>
             About Us
           </Button>
-          <Button color="inherit" onClick={handleSignUpClick}>
-            Sign Up
-          </Button>
-          <Button color="inherit" onClick={handleLogInClick}>
-            Login
-          </Button>
         </Toolbar>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <Divider light />
+          <div className="flex-row">
+            <TagCloud handleToggle={handleToggle} />
+          </div>
+        </Collapse>
       </AppBar>
     </Box>
   );

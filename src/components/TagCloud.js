@@ -4,37 +4,9 @@ import TagMap from './TagMap';
 
 export default function TagCloud({ handleToggle }) {
   return (
-    <div className="flex-row">
-      <TagMap />
-      <div className="flex-col">
-        <FormControlLabel
-          control={<Switch defaultChecked value="africa" onChange={(al_event) => handleToggle(al_event.target.value)} />}
-          label="Africa"
-        />
-        <FormControlLabel
-          control={<Switch defaultChecked value="middle-east" onChange={(al_event) => handleToggle(al_event.target.value)} />}
-          label="Middle East"
-        />
-        <FormControlLabel
-          control={<Switch defaultChecked value="asia" onChange={(al_event) => handleToggle(al_event.target.value)} />}
-          label="Asia"
-        />
-      </div>
-      <div className="flex-col">
-        <FormControlLabel
-          control={<Switch defaultChecked value="europe" onChange={(al_event) => handleToggle(al_event.target.value)} />}
-          label="Europe"
-        />
-        <FormControlLabel
-          control={<Switch defaultChecked value="north-america" onChange={(al_event) => handleToggle(al_event.target.value)} />}
-          label="North America"
-        />
-        <FormControlLabel
-          control={<Switch defaultChecked value="south-america" onChange={(al_event) => handleToggle(al_event.target.value)} />}
-          label="South America"
-        />
-      </div>
-      <div className="flex-col">
+    <div className="flex-row-tags">
+      <TagMap handleToggle={handleToggle} />
+      <div className="flex-col-tags">
         <FormControlLabel
           control={<Switch defaultChecked value="Al Jazeera English" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="Al Jazeera"

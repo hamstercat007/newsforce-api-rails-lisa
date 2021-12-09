@@ -8,7 +8,7 @@ export default function SkeletonGrid() {
       <Grid container spacing={0}>
         {skelArr.map((skel) => {
           return (
-            <Grid key={skel + 'grid'} item xs={12} sm={6} md={5}>
+            <Grid key={skel + 'grid'} item xs={12} sm={12} md={5}>
               <SkeletonCard key={skel + 'skel'} typeskel={skel} />
             </Grid>
           );

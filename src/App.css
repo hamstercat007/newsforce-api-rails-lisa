@@ -40,6 +40,11 @@ a {
   font-family: "Biotif-Book";
 }
 
+body {
+  margin: 0;
+  background-color: rgb(241, 241, 241);
+}
+
 .MuiCardHeader-subheader {
   font-family: "Biotif-Book" !important;
 }
@@ -58,6 +63,7 @@ a {
 .MuiGrid-root {
   width: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 .MuiCardActions-root {
@@ -110,9 +116,9 @@ a {
   padding-bottom: 0.3em !important;
 }
 
-.tag-map {
-  margin: 2em;
-  width: 50%;
+svg.tag-map {
+  margin: 1em;
+  width: 60vw;
 }
 
 .MuiCollapse-wrapper {
@@ -122,7 +128,15 @@ a {
 .flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.flex-row-tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   height: 100%;
   width: 100%;
 }
@@ -134,8 +148,16 @@ a {
   justify-content: space-around;
 }
 
-.MuiFormControlLabel-label {
-  font-family: "Biotif-Bold" !important;
+.flex-col-tags {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.MuiFormControlLabel-label,
+.MuiTooltip-tooltipPlacementRight {
+  font-family: 'Biotif-Bold' !important;
 }
 
 .MuiTextField-root,
@@ -155,4 +177,71 @@ a {
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+
+.MuiGrid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiButton-text {
+  font-family: 'Biotif-Black' !important;
+  color: gray;
+}
+
+.MuiCollapse-wrapper {
+  height: 30vh;
+  min-height: 400px;
+  margin-bottom: 2em;
+}
+
+a {
+  cursor: pointer;
+}
+
+.africaContainer:hover > * {
+  fill: rgb(216, 68, 68);
+}
+
+.asiaContainer:hover > * {
+  fill: rgb(216, 68, 68);
+}
+
+.europeContainer:hover > * {
+  fill: rgb(216, 68, 68);
+}
+
+.middleEastContainer:hover > * {
+  fill: rgb(216, 68, 68);
+}
+
+.northAmContainer:hover > * {
+  fill: rgb(216, 68, 68);
+}
+
+.southAmContainer:hover > * {
+  fill: rgb(216, 68, 68);
+}
+
+@media screen and (max-width: 900px) {
+  .flex-row-tags {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-col-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 10%;
+  }
+
+  .MuiCollapse-wrapper {
+    height: 30vh;
+    min-height: 300px;
+    margin-bottom: 2em;
+  }
 }
