@@ -1,6 +1,16 @@
 export default function TagMap({ handleToggle }) {
   return (
-    <svg version="1.1" className="tag-map" height="auto" width="100%" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 783.1 400.6">
+    <svg
+      id="svgTagMap"
+      version="1.1"
+      className="tag-map"
+      height="auto"
+      width="100%"
+      xmlns="http://www.w3.org/2000/svg"
+      x="0px"
+      y="0px"
+      viewBox="0 0 783.1 400.6"
+    >
       <g id="svg_1">
         <a onClick={() => handleToggle('africa')} className="africaContainer">
           <path

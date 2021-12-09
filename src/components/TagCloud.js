@@ -4,9 +4,9 @@ import TagMap from './TagMap';
 
 export default function TagCloud({ handleToggle }) {
   return (
-    <div className="flex-row">
+    <div className="flex-row-tags">
       <TagMap handleToggle={handleToggle} />
-      <div className="flex-col">
+      <div className="flex-col-tags">
         <FormControlLabel
           control={<Switch defaultChecked value="Al Jazeera English" onChange={(al_event) => handleToggle(al_event.target.value)} />}
           label="Al Jazeera"
