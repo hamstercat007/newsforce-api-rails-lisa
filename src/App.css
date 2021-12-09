@@ -177,25 +177,25 @@ a {
 }
 
 .africaContainer:hover > * {
-  fill: red;
+  fill: rgb(216, 68, 68);
 }
 
 .asiaContainer:hover > * {
-  fill: red;
+  fill: rgb(216, 68, 68);
 }
 
 .europeContainer:hover > * {
-  fill: red;
+  fill: rgb(216, 68, 68);
 }
 
 .middleEastContainer:hover > * {
-  fill: red;
+  fill: rgb(216, 68, 68);
 }
 
 .northAmContainer:hover > * {
-  fill: red;
+  fill: rgb(216, 68, 68);
 }
 
 .southAmContainer:hover > * {
-  fill: red;
+  fill: rgb(216, 68, 68);
 }
