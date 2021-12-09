@@ -108,9 +108,9 @@ body {
   padding-bottom: 0.3em !important;
 }
 
-.tag-map {
+svg.tag-map {
   margin: 2em;
-  width: 50%;
+  width: 50vw;
 }
 
 .MuiCollapse-wrapper {
@@ -165,4 +165,13 @@ body {
 .MuiButton-text {
   font-family: 'Biotif-Black' !important;
   color: gray;
+}
+
+.MuiCollapse-wrapper {
+  height: 40vh;
+  margin-bottom: 2em;
+}
+
+path {
+  pointer-events: auto;
 }
