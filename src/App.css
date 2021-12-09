@@ -109,8 +109,8 @@ body {
 }
 
 svg.tag-map {
-  margin: 2em;
-  width: 50vw;
+  margin: 1em;
+  width: 60vw;
 }
 
 .MuiCollapse-wrapper {
@@ -120,7 +120,7 @@ svg.tag-map {
 .flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   height: 100%;
   width: 100%;
 }
@@ -168,10 +168,10 @@ svg.tag-map {
 }
 
 .MuiCollapse-wrapper {
-  height: 40vh;
+  height: 45vh;
   margin-bottom: 2em;
 }
 
-path {
-  pointer-events: auto;
+a {
+  cursor: pointer;
 }
