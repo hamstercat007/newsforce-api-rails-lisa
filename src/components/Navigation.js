@@ -7,8 +7,8 @@ import Typography from '@mui/material/Typography';
 import { useNavigate, Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import FilterListIcon from '@mui/icons-material/FilterList';
+import newsforceLogo from '../vectors/newsforceLogo.svg';
 const Navigation = ({ expanded, setExpanded }) => {
   const navigate = useNavigate();
 
@@ -29,15 +29,13 @@ const Navigation = ({ expanded, setExpanded }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
+      <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black', justifyContent: 'center' }}>
         <Toolbar>
-          <Typography variant="h3" component="div">
-            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} className="nav-title">
-              NEWSFORCE
-            </Link>
-          </Typography>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} className="nav-title">
+            <img src={newsforceLogo} width="250" height="auto" alt="newsforce-logo" />
+          </Link>
           <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
-            <ExpandMoreIcon />
+            <FilterListIcon />
           </ExpandMore>
           <Button color="inherit" onClick={() => navigate('/about')}>
             About Us
