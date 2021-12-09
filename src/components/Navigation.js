@@ -3,13 +3,16 @@ import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
-import Typography from '@mui/material/Typography';
 import { useNavigate, Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import newsforceLogo from '../vectors/newsforceLogo.svg';
-const Navigation = ({ expanded, setExpanded }) => {
+import Collapse from '@mui/material/Collapse';
+import Divider from '@mui/material/Divider';
+import TagCloud from './TagCloud';
+
+const Navigation = ({ expanded, setExpanded, handleToggle }) => {
   const navigate = useNavigate();
 
   const ExpandMore = styled((props) => {
@@ -47,6 +50,12 @@ const Navigation = ({ expanded, setExpanded }) => {
             Login
           </Button>
         </Toolbar>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <Divider light />
+          <div className="flex-row">
+            <TagCloud handleToggle={handleToggle} />
+          </div>
+        </Collapse>
       </AppBar>
     </Box>
   );
