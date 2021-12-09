@@ -42,7 +42,7 @@ function App() {
   };
 
   const getData = () => {
-    fetch('sample_data.json', {
+    fetch('https://newsforce-api.herokuapp.com/index', {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -52,7 +52,8 @@ function App() {
         return response.json();
       })
       .then(function (myJson) {
-        setData(myJson);
+        let slicedData = myJson.slice(0, 70);
+        setData(slicedData);
       });
   };
 
