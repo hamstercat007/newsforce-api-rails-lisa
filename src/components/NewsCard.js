@@ -5,8 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import jazeeraLogo from '../vectors/jazeera.svg';
 import bbcLogo from '../vectors/bbcnews.svg';
@@ -39,26 +37,16 @@ const NewsCard = ({ publisher, publish_date, image_url, headline, sub_headline, 
     <Card style={style}>
       <CardHeader
         avatar={<Avatar src={getIcon(publisher)} aria-label="publisher_logo" variant="square" sx={{ height: 'auto', width: '50px' }}></Avatar>}
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title={truncate(sub_headline)}
         subheader={formatTimeAgo(publish_date)}
       />
       <CardMedia component="img" height="194" src={image_url} alt="Image" />
       <CardActions disableSpacing>
-        <div className="card-buttons">
-          <IconButton aria-label="add to favorites">
-            <BookmarkAddIcon />
+        <Link href={src_url} target="_blank">
+          <IconButton aria-label="source article">
+            <NewspaperIcon style={{ height: '1.2em', width: '1.2em' }} />
           </IconButton>
-          <Link href={src_url} target="_blank">
-            <IconButton aria-label="source article">
-              <NewspaperIcon />
-            </IconButton>
-          </Link>
-        </div>
+        </Link>
         <TagButtons tag_list={tag_list} />
       </CardActions>
     </Card>
