@@ -43,12 +43,6 @@ const Navigation = ({ expanded, setExpanded, handleToggle }) => {
           <Button color="inherit" onClick={() => navigate('/about')}>
             About Us
           </Button>
-          <Button color="inherit" onClick={() => navigate('/signup')}>
-            Sign Up
-          </Button>
-          <Button color="inherit" onClick={() => navigate('/login')}>
-            Login
-          </Button>
         </Toolbar>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <Divider light />
