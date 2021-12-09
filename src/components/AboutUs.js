@@ -73,10 +73,10 @@ const AboutUs = () => {
             name="Alex"
             image_url={alex}
             image_url_alt="Photo of Alex Boyling"
-            github_url="https://github.com/arthurfincham"
+            github_url="https://github.com/starf0g"
             strength1="Design skills"
             strength2="Calm and methodical"
-            strength3=""
+            strength3="Attention to detail"
           ></TeamBio>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
@@ -106,9 +106,9 @@ const AboutUs = () => {
             name="Tom"
             image_url={tom}
             image_url_alt="Photo of Tom Kellett"
-            github_url="https://github.com/hamstercat007"
-            strength1="Managerial"
-            strength2=""
+            github_url="https://github.com/t-kellett"
+            strength1="Managerial oversight"
+            strength2="Technical architectural understanding"
             strength3=""
           ></TeamBio>
         </Grid>
