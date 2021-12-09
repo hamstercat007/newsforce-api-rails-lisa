@@ -64,7 +64,7 @@ const AboutUs = () => {
       </Card>
       <Grid container justify="center">
         <Box m={2} pb={1}>
-          <Button variant="contained">Team Bio</Button>
+          <Button variant="contained">Team</Button>
         </Box>
       </Grid>
       <Grid container spacing={4} className={classes.gridContainer}>
