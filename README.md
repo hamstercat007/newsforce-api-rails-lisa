@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+<div align="center">
 
-The live app can be found [here](https://newsforce-front-end-react.herokuapp.com/) 
+<img src="public/newsforceLogo.png" width="300px">
 
-## Available Scripts
+![](https://img.shields.io/github/last-commit/newsforce/newsforce-front-end-react)
+![](https://img.shields.io/github/languages/count/newsforce/newsforce-front-end-react)
+![](https://img.shields.io/github/languages/code-size/newsforce/newsforce-front-end-react)
 
-In the project directory, you can run:
+[Link to video presentation](https://youtu.be/B76vAgGgh4I?t=168)
 
-### `yarn start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Preview](#Preview)
+- [Features](#Features)
+- [Install](#Install)
+- [Stack](#Stack)
+  - [Project](#Project)
+  - [Testing](#Testing)
+- [Team](#Team)
 
-### `yarn test`
+<div align="center" >
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Preview
 
-### `yarn build`
+<img src="public/imagePreviews/mainPreview.png" width="600px">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+&nbsp;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="public/imagePreviews/filteringPreview.png" width="600px">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+&nbsp;
 
-### `yarn eject`
+<img src="public/imagePreviews/statementPreview.png" width="600px">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+&nbsp;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="public/imagePreviews/teamPreview.png" width="600px">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+&nbsp;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+</div>
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- API based news aggregator from several sources.
+- Filtering based on publisher.
+- Filtering based on continent.
+- Continental filtering using an interactive map.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Install
 
-### Code Splitting
+Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+% git clone https://github.com/newsforce/newsforce-front-end-react
+```
 
-### Analyzing the Bundle Size
+Go to the project directory and install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+% cd newsforce-front-end-react
+```
 
-### Making a Progressive Web App
+```bash
+% yarn
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Run the server
 
-### Advanced Configuration
+```bash
+% yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Stack
 
-### Deployment
+### Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+|                                                                                                                                         | Tool                                      | Use?                                               | Where can I see it?               |
+| :-------------------------------------------------------------------------------------------------------------------------------------: | ----------------------------------------- | -------------------------------------------------- | --------------------------------- |
+|                          <img src="https://image.pngaaa.com/154/4122154-middle.png" height="auto" width="50">                           | [Ruby on Rails](https://rubyonrails.org/) | Server-side web framework written in Ruby.         | In the back end for our project.  |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" height="auto" width="50"> | [React](https://reactjs.org/)             | A JavaScript library for building user interfaces. | In the front end for our project. |
+|                   <img src="https://www.drupal.org/files/issues/2019-12-27/heroku_logo.png" height="auto" width="50">                   | [Heroku](https://www.heroku.com/)         | Cloud platform for deploying web apps.             | Hosting the live site.            |
 
-### `yarn build` fails to minify
+### Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|                                                                                               | Tool                         | Use?                         | Where can I see it?                                            |
+| :-------------------------------------------------------------------------------------------: | ---------------------------- | ---------------------------- | :------------------------------------------------------------- |
+|          <img src="https://rspec.info/images/logo_ogp.png" height="auto" width="50">          | [RSpec](https://rspec.info/) | Testing tool for Ruby.       | `newsforce-api-rails/spec/*` Unit tests for the app's classes. |
+| <img src="https://nx.dev/documentation/latest/shared/jest-logo.png" height="auto" width="50"> | [Jest](https://jestjs.io/)   | JavaScript testing framework | `newsforce-front-end-react/src/*` Feature testing for the app. |
+
+## Team
+
+> Alex &nbsp;&middot;&nbsp;
+> GitHub [@starf0g](https://github.com/starf0g) &nbsp;&middot;&nbsp;
+
+> Arthur &nbsp;&middot;&nbsp;
+> GitHub [@arthurfincham](https://github.com/arthurfincham) &nbsp;&middot;&nbsp;
+
+> Lisa &nbsp;&middot;&nbsp;
+> GitHub [@hamstercat007](https://github.com/hamstercat007) &nbsp;&middot;&nbsp;
+
+> Tom &nbsp;&middot;&nbsp;
+> GitHub [@](https://github.com/t-kellett) &nbsp;&middot;&nbsp;

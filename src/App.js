@@ -52,7 +52,7 @@ function App() {
         return response.json();
       })
       .then(function (myJson) {
-        let slicedData = myJson.slice(0, 70);
+        let slicedData = myJson.slice(0, 500);
         setData(slicedData);
       });
   };
@@ -69,7 +69,7 @@ function App() {
     getData();
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
