@@ -1,12 +1,12 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import AboutUs from './components/AboutUs';
-import SignUp from './components/SignUp';
-import LogIn from './components/LogIn';
-import './App.css';
-import Navigation from './components/Navigation';
+import React from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import AboutUs from "./components/AboutUs";
+import SignUp from "./components/SignUp";
+import LogIn from "./components/LogIn";
+import "./App.css";
+import Navigation from "./components/Navigation";
 
 function App() {
   const [expanded, setExpanded] = React.useState(false);
@@ -18,20 +18,22 @@ function App() {
   const [filteredResults, setFilteredResults] = useState([]);
 
   const [toggleList, setToggleList] = useState([
-    'BBC News',
-    'Al Jazeera English',
-    'Associated Press',
-    'asia',
-    'europe',
-    'north-america',
-    'middle-east',
-    'south-america',
-    'africa',
+    "BBC News",
+    "Al Jazeera English",
+    "Associated Press",
+    "asia",
+    "europe",
+    "north-america",
+    "middle-east",
+    "south-america",
+    "africa",
   ]);
 
   const handleToggle = (inputValue) => {
     updateMapFill(inputValue);
-    const filt = toggleList.includes(inputValue) ? toggleList.filter((item) => item !== inputValue) : toggleList.concat(inputValue);
+    const filt = toggleList.includes(inputValue)
+      ? toggleList.filter((item) => item !== inputValue)
+      : toggleList.concat(inputValue);
     setToggleList(filt);
     const filteredData = data
       .filter((item) => {
@@ -42,10 +44,10 @@ function App() {
   };
 
   const getData = () => {
-    fetch('https://newsforce-api.herokuapp.com/index', {
+    fetch("https://newsforce-api-lisa.herokuapp.com", {
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
     })
       .then(function (response) {
@@ -60,7 +62,9 @@ function App() {
   const updateMapFill = (item) => {
     let continent = document.getElementsByClassName(item);
     [].forEach.call(continent, function (cont) {
-      cont.style.fill === 'rgb(195, 195, 195)' ? (cont.style.fill = 'rgb(0, 0, 0)') : (cont.style.fill = 'rgb(195, 195, 195)');
+      cont.style.fill === "rgb(195, 195, 195)"
+        ? (cont.style.fill = "rgb(0, 0, 0)")
+        : (cont.style.fill = "rgb(195, 195, 195)");
     });
   };
 
@@ -77,12 +81,24 @@ function App() {
   return (
     <>
       <Router>
-        <Navigation expanded={expanded} handleToggle={handleToggle} setExpanded={setExpanded} />
+        <Navigation
+          expanded={expanded}
+          handleToggle={handleToggle}
+          setExpanded={setExpanded}
+        />
         <Routes>
           <Route
             key={1}
             path="/"
-            element={<Home expanded={expanded} toggleList={toggleList} filteredResults={filteredResults} data={data} loading={loading} />}
+            element={
+              <Home
+                expanded={expanded}
+                toggleList={toggleList}
+                filteredResults={filteredResults}
+                data={data}
+                loading={loading}
+              />
+            }
           />
           <Route key={2} path="/about" element={<AboutUs />} />
           <Route key={3} path="/signup" element={<SignUp />} />
